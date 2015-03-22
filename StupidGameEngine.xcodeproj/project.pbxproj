@@ -11,8 +11,6 @@
 		487FFA561ABB9987000F9A13 /* Actor.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA441ABB9987000F9A13 /* Actor.h */; };
 		487FFA571ABB9987000F9A13 /* ActorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA451ABB9987000F9A13 /* ActorComponent.cpp */; };
 		487FFA581ABB9987000F9A13 /* ActorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA461ABB9987000F9A13 /* ActorComponent.h */; };
-		487FFA591ABB9987000F9A13 /* ActorComponentFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA471ABB9987000F9A13 /* ActorComponentFactory.cpp */; };
-		487FFA5A1ABB9987000F9A13 /* ActorComponentFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA481ABB9987000F9A13 /* ActorComponentFactory.h */; };
 		487FFA5B1ABB9987000F9A13 /* ActorFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA491ABB9987000F9A13 /* ActorFactory.cpp */; };
 		487FFA5C1ABB9987000F9A13 /* ActorFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA4A1ABB9987000F9A13 /* ActorFactory.h */; };
 		487FFA5E1ABB9987000F9A13 /* sge_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA4D1ABB9987000F9A13 /* sge_base.cpp */; };
@@ -22,6 +20,16 @@
 		487FFA6F1ABBA7C6000F9A13 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA6D1ABBA7C6000F9A13 /* TransformComponent.cpp */; };
 		487FFA701ABBA7C6000F9A13 /* TransformComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA6E1ABBA7C6000F9A13 /* TransformComponent.h */; };
 		487FFA721ABBABCA000F9A13 /* Actor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA711ABBABCA000F9A13 /* Actor.cpp */; };
+		487FFA801ABC5B00000F9A13 /* BaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA7E1ABC5B00000F9A13 /* BaseView.h */; };
+		487FFA821ABC5CAA000F9A13 /* BaseView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA811ABC5CAA000F9A13 /* BaseView.cpp */; };
+		487FFA861ABC79F6000F9A13 /* BaseLogic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA841ABC79F6000F9A13 /* BaseLogic.cpp */; };
+		487FFA871ABC79F6000F9A13 /* BaseLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA851ABC79F6000F9A13 /* BaseLogic.h */; };
+		487FFA8E1ABD5C7B000F9A13 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA8C1ABD5C7B000F9A13 /* Application.cpp */; };
+		487FFA8F1ABD5C7B000F9A13 /* Application.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA8D1ABD5C7B000F9A13 /* Application.h */; };
+		487FFA921ABD6480000F9A13 /* FiniteStateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA901ABD6480000F9A13 /* FiniteStateMachine.cpp */; };
+		487FFA931ABD6480000F9A13 /* FiniteStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA911ABD6480000F9A13 /* FiniteStateMachine.h */; };
+		487FFA961ABEC0C3000F9A13 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA941ABEC0C3000F9A13 /* Utils.cpp */; };
+		487FFA971ABEC0C3000F9A13 /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA951ABEC0C3000F9A13 /* Utils.h */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -30,8 +38,6 @@
 		487FFA441ABB9987000F9A13 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		487FFA451ABB9987000F9A13 /* ActorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActorComponent.cpp; sourceTree = "<group>"; };
 		487FFA461ABB9987000F9A13 /* ActorComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActorComponent.h; sourceTree = "<group>"; };
-		487FFA471ABB9987000F9A13 /* ActorComponentFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActorComponentFactory.cpp; sourceTree = "<group>"; };
-		487FFA481ABB9987000F9A13 /* ActorComponentFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActorComponentFactory.h; sourceTree = "<group>"; };
 		487FFA491ABB9987000F9A13 /* ActorFactory.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActorFactory.cpp; sourceTree = "<group>"; };
 		487FFA4A1ABB9987000F9A13 /* ActorFactory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ActorFactory.h; sourceTree = "<group>"; };
 		487FFA4D1ABB9987000F9A13 /* sge_base.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = sge_base.cpp; sourceTree = "<group>"; };
@@ -41,6 +47,16 @@
 		487FFA6D1ABBA7C6000F9A13 /* TransformComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = TransformComponent.cpp; sourceTree = "<group>"; };
 		487FFA6E1ABBA7C6000F9A13 /* TransformComponent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TransformComponent.h; sourceTree = "<group>"; };
 		487FFA711ABBABCA000F9A13 /* Actor.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Actor.cpp; sourceTree = "<group>"; };
+		487FFA7E1ABC5B00000F9A13 /* BaseView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseView.h; sourceTree = "<group>"; };
+		487FFA811ABC5CAA000F9A13 /* BaseView.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseView.cpp; sourceTree = "<group>"; };
+		487FFA841ABC79F6000F9A13 /* BaseLogic.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = BaseLogic.cpp; sourceTree = "<group>"; };
+		487FFA851ABC79F6000F9A13 /* BaseLogic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BaseLogic.h; sourceTree = "<group>"; };
+		487FFA8C1ABD5C7B000F9A13 /* Application.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Application.cpp; sourceTree = "<group>"; };
+		487FFA8D1ABD5C7B000F9A13 /* Application.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Application.h; sourceTree = "<group>"; };
+		487FFA901ABD6480000F9A13 /* FiniteStateMachine.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = FiniteStateMachine.cpp; sourceTree = "<group>"; };
+		487FFA911ABD6480000F9A13 /* FiniteStateMachine.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FiniteStateMachine.h; sourceTree = "<group>"; };
+		487FFA941ABEC0C3000F9A13 /* Utils.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = Utils.cpp; sourceTree = "<group>"; };
+		487FFA951ABEC0C3000F9A13 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -74,10 +90,13 @@
 			isa = PBXGroup;
 			children = (
 				487FFA431ABB9987000F9A13 /* actors */,
+				487FFA8B1ABD5C7B000F9A13 /* app */,
 				487FFA4C1ABB9987000F9A13 /* events */,
-				487FFA4D1ABB9987000F9A13 /* sge_base.cpp */,
+				487FFA831ABC79D5000F9A13 /* logic */,
 				487FFA4E1ABB9987000F9A13 /* sge_base.h */,
+				487FFA4D1ABB9987000F9A13 /* sge_base.cpp */,
 				487FFA521ABB9987000F9A13 /* utils */,
+				487FFA7C1ABC5A79000F9A13 /* views */,
 				487FFA3A1ABB98D9000F9A13 /* sge.h */,
 			);
 			path = sge;
@@ -90,8 +109,6 @@
 				487FFA711ABBABCA000F9A13 /* Actor.cpp */,
 				487FFA451ABB9987000F9A13 /* ActorComponent.cpp */,
 				487FFA461ABB9987000F9A13 /* ActorComponent.h */,
-				487FFA471ABB9987000F9A13 /* ActorComponentFactory.cpp */,
-				487FFA481ABB9987000F9A13 /* ActorComponentFactory.h */,
 				487FFA491ABB9987000F9A13 /* ActorFactory.cpp */,
 				487FFA4A1ABB9987000F9A13 /* ActorFactory.h */,
 				487FFA6D1ABBA7C6000F9A13 /* TransformComponent.cpp */,
@@ -112,8 +129,39 @@
 			children = (
 				487FFA531ABB9987000F9A13 /* HasID.cpp */,
 				487FFA541ABB9987000F9A13 /* HasID.h */,
+				487FFA901ABD6480000F9A13 /* FiniteStateMachine.cpp */,
+				487FFA911ABD6480000F9A13 /* FiniteStateMachine.h */,
+				487FFA941ABEC0C3000F9A13 /* Utils.cpp */,
+				487FFA951ABEC0C3000F9A13 /* Utils.h */,
 			);
 			path = utils;
+			sourceTree = "<group>";
+		};
+		487FFA7C1ABC5A79000F9A13 /* views */ = {
+			isa = PBXGroup;
+			children = (
+				487FFA7E1ABC5B00000F9A13 /* BaseView.h */,
+				487FFA811ABC5CAA000F9A13 /* BaseView.cpp */,
+			);
+			path = views;
+			sourceTree = "<group>";
+		};
+		487FFA831ABC79D5000F9A13 /* logic */ = {
+			isa = PBXGroup;
+			children = (
+				487FFA841ABC79F6000F9A13 /* BaseLogic.cpp */,
+				487FFA851ABC79F6000F9A13 /* BaseLogic.h */,
+			);
+			path = logic;
+			sourceTree = "<group>";
+		};
+		487FFA8B1ABD5C7B000F9A13 /* app */ = {
+			isa = PBXGroup;
+			children = (
+				487FFA8C1ABD5C7B000F9A13 /* Application.cpp */,
+				487FFA8D1ABD5C7B000F9A13 /* Application.h */,
+			);
+			path = app;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -126,11 +174,15 @@
 				487FFA5F1ABB9987000F9A13 /* sge_base.h in Headers */,
 				487FFA701ABBA7C6000F9A13 /* TransformComponent.h in Headers */,
 				487FFA561ABB9987000F9A13 /* Actor.h in Headers */,
+				487FFA8F1ABD5C7B000F9A13 /* Application.h in Headers */,
 				487FFA5C1ABB9987000F9A13 /* ActorFactory.h in Headers */,
 				487FFA3B1ABB98D9000F9A13 /* sge.h in Headers */,
+				487FFA971ABEC0C3000F9A13 /* Utils.h in Headers */,
 				487FFA641ABB9987000F9A13 /* HasID.h in Headers */,
-				487FFA5A1ABB9987000F9A13 /* ActorComponentFactory.h in Headers */,
 				487FFA581ABB9987000F9A13 /* ActorComponent.h in Headers */,
+				487FFA931ABD6480000F9A13 /* FiniteStateMachine.h in Headers */,
+				487FFA801ABC5B00000F9A13 /* BaseView.h in Headers */,
+				487FFA871ABC79F6000F9A13 /* BaseLogic.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -189,12 +241,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				487FFA861ABC79F6000F9A13 /* BaseLogic.cpp in Sources */,
 				487FFA721ABBABCA000F9A13 /* Actor.cpp in Sources */,
+				487FFA8E1ABD5C7B000F9A13 /* Application.cpp in Sources */,
 				487FFA631ABB9987000F9A13 /* HasID.cpp in Sources */,
 				487FFA5E1ABB9987000F9A13 /* sge_base.cpp in Sources */,
-				487FFA591ABB9987000F9A13 /* ActorComponentFactory.cpp in Sources */,
+				487FFA821ABC5CAA000F9A13 /* BaseView.cpp in Sources */,
 				487FFA5B1ABB9987000F9A13 /* ActorFactory.cpp in Sources */,
 				487FFA6F1ABBA7C6000F9A13 /* TransformComponent.cpp in Sources */,
+				487FFA961ABEC0C3000F9A13 /* Utils.cpp in Sources */,
+				487FFA921ABD6480000F9A13 /* FiniteStateMachine.cpp in Sources */,
 				487FFA571ABB9987000F9A13 /* ActorComponent.cpp in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

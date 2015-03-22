@@ -13,18 +13,16 @@
 SGE_NS_BEGIN;
 
 
-class Actor : private HasID
+class Actor : public HasID
 {
+public:
     Actor();
-    virtual ~Actor();
+    virtual ~Actor();  // Deletes components
+    void addComponent(const std::string& name, ActorComponent *component);
     ActorComponent *getComponent(const std::string& name);
-
-    ID getActorID();
 
 private:
     std::map<std::string, ActorComponent *> components_;
-    void addComponent(const std::string& name, ActorComponent *component);
-    friend class ActorFactory;
 };
 
 

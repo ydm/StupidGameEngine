@@ -30,8 +30,12 @@ class Vec3
 {
 public:
     Vec3(double x=0, double y=0, double z=0);
+    Vec3(const Vec3& other);
     virtual ~Vec3();
-    const double x, y, z;
+    Vec3& operator=(const Vec3& other);
+
+private:
+    double x_, y_, z_;
 };
 
 SGE_NS_END;

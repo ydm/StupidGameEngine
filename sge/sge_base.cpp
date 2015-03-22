@@ -21,14 +21,32 @@ void loge(const char *fmt, ...)
 }
 
 
-Vec3::Vec3(double xx, double yy, double zz)
-: x(xx)
-, y(yy)
-, z(zz)
+Vec3::Vec3(double x, double y, double z)
+: x_(x)
+, y_(y)
+, z_(z)
+{
+}
+
+
+Vec3::Vec3(const Vec3& other)
+: x_(other.x_)
+, y_(other.y_)
+, z_(other.z_)
 {
 }
 
 
 Vec3::~Vec3()
 {
+}
+
+
+Vec3&
+Vec3::operator=(const Vec3 &other)
+{
+    x_ = other.x_;
+    y_ = other.y_;
+    z_ = other.z_;
+    return *this;
 }

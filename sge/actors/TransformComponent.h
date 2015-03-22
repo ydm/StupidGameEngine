@@ -19,8 +19,8 @@ public:
     TransformComponent();
     virtual ~TransformComponent();
 
-    Vec3& getPosition();
-    void setPosition(Vec3& pos);
+    Vec3 getPosition() const;
+    void setPosition(const Vec3& pos);
 
 private:
     Vec3 position_;

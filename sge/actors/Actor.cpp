@@ -29,12 +29,9 @@ Actor::~Actor()
 ActorComponent *
 Actor::getComponent(const std::string& name)
 {
-    try
-    {
+    try {
         return components_.at(name);
-    }
-    catch (std::out_of_range _)
-    {
+    } catch (std::out_of_range _) {
         loge("Actor::getComponent: unknown component %s", name.c_str());
     }
     return nullptr;
@@ -44,4 +41,5 @@ Actor::getComponent(const std::string& name)
 void Actor::addComponent(const std::string &name, sge::ActorComponent *component)
 {
     components_[name] = component;
+    component->setOwner(this);
 }

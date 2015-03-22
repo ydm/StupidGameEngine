@@ -4,7 +4,7 @@
 //
 
 #include "ActorFactory.h"
-#include "ActorComponentFactory.h"
+#include "TransformComponent.h"
 SGE_NS_USING;
 
 
@@ -16,6 +16,11 @@ Actor *
 ActorFactory::createActor()
 {
     Actor *a = new Actor();
-    // a->addComponent("Transform", ActorComponentFactory::getInstance()->createComponent("Transform"));
+
+    TransformComponent *transform = new TransformComponent();
+    Vec3 pos(0, 0, 0);
+    transform->setPosition(pos);
+
+    a->addComponent("transform", transform);
     return a;
 }

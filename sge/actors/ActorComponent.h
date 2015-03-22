@@ -17,19 +17,13 @@ class ActorComponent
 public:
     ActorComponent();
     virtual ~ActorComponent();
-
-    virtual bool init();
-    // virtual void postInit();
     virtual void update(const float dt);
-    // virtual void onChange();
-
-protected:
     Actor *getOwner();
 
 private:
+    friend class Actor;
     Actor *owner_;
     void setOwner(Actor *owner);
-    friend class ActorFactory;
 };
 
 SGE_NS_END;
