@@ -7,7 +7,7 @@
 //
 
 #include "Application.h"
-SGE_NS_USING;
+SGE_NS_BEGIN;
 
 
 Application::Application()
@@ -29,20 +29,27 @@ Application::~Application()
 
 void Application::update(const float dt)
 {
-    for (auto v : views_)
-    {
-        v->update(dt);
-    }
+    logic_->update(dt);
 }
 
 
 void Application::setLogic(BaseLogic *logic)
 {
+    // ydm: I like simple things, so logic_ can be set only once.
     if (logic_)
     {
-        delete logic_;
+        loge("%s: logic object is already set", __func__);
+        return;
     }
-    logic_ = logic;
+
+    if (logic)
+    {
+        logic_ = logic;
+    }
+    else
+    {
+        loge("%s: bad LOGIC argument", __func__);
+    }
 }
 
 
@@ -53,3 +60,6 @@ void Application::addView(BaseView *view)
         views_.push_back(view);
     }
 }
+
+
+SGE_NS_END;

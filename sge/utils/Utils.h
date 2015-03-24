@@ -47,6 +47,19 @@ public:
         return false;
     }
 
+    /*
+     * ydm: I'm not sure about that
+    template<typename K, typename V>
+    static V mapGet(const std::map<K, V>& m, const K& key, const V defaultValue = 0)
+    {
+        try {
+            return m.at(key);
+        } catch (std::out_of_range _) {
+            return defaultValue;
+        }
+    }
+    */
+
     template<typename K, typename  V>
     static bool mapSetDefault(std::map<K, V>& m, const K& key, const V val)
     {

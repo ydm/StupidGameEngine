@@ -7,7 +7,7 @@
 //
 
 #include "Actor.h"
-SGE_NS_USING;
+SGE_NS_BEGIN;
 
 
 Actor::Actor()
@@ -18,16 +18,32 @@ Actor::Actor()
 
 Actor::~Actor()
 {
-    for (auto& kv : components_)
+    // for (auto& kv : components_)
+    for (std::map<std::string, ActorComponent *>::iterator it = components_.begin();
+         it != components_.end();
+         it++)
     {
-        ActorComponent *c = kv.second;
-        delete c;
+        delete it->second;
+    }
+}
+
+
+void Actor::addComponent(const std::string &name, sge::ActorComponent *component)
+{
+    if (component)
+    {
+        components_[name] = component;
+        component->setOwner(this);
+    }
+    else
+    {
+        loge("Actor::addComponent: unable to add null component");
     }
 }
 
 
 ActorComponent *
-Actor::getComponent(const std::string& name)
+Actor::getComponent(const std::string& name) const
 {
     try {
         return components_.at(name);
@@ -38,8 +54,12 @@ Actor::getComponent(const std::string& name)
 }
 
 
-void Actor::addComponent(const std::string &name, sge::ActorComponent *component)
+void Actor::update(const float dt)
 {
-    components_[name] = component;
-    component->setOwner(this);
+    for (auto kv : components_)
+    {
+        kv.second->update(dt);
+    }
 }
+
+SGE_NS_END;

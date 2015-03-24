@@ -7,7 +7,7 @@
 //
 
 #include "BaseView.h"
-SGE_NS_USING;
+SGE_NS_BEGIN;
 
 
 BaseView::BaseView()
@@ -18,3 +18,6 @@ BaseView::BaseView()
 BaseView::~BaseView()
 {
 }
+
+
+SGE_NS_END;

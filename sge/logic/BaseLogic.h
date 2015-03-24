@@ -23,16 +23,18 @@ public:
     virtual ~BaseLogic();
     virtual void update(const float dt);
 
-    void addActorForState(size_t state, Actor *actor);
+    void addActorForState(std::string& state, Actor *actor);
     void addGlobalActor(Actor *actor);
 
 protected:
     void onTransition(const std::string& oldState, const std::string& newState) override;
 
 private:
-    std::map<size_t, std::list<Actor *> *>   actors_;
-    std::list<Actor *>                      *currentStateActors_;
-    std::list<Actor *>                       globalActors_;
+    std::list<Actor *> *getActorsForState(const std::string& state);
+
+    std::map<std::string, std::list<Actor *> *>  actors_;
+    std::list<Actor *>                          *currentStateActors_;
+    std::list<Actor *>                           globalActors_;
 };
 
 

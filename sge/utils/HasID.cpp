@@ -6,7 +6,7 @@
 //
 
 #include "HasID.h"
-SGE_NS_USING;
+SGE_NS_BEGIN;
 
 
 const HasID::ID
@@ -35,3 +35,6 @@ void HasID::setID(const ID ident)
 {
     id_ = ident;
 }
+
+
+SGE_NS_END;

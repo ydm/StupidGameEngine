@@ -7,7 +7,7 @@
 #include <cstdio>
 
 #include "sge_base.h"
-SGE_NS_USING;
+SGE_NS_BEGIN;
 
 
 void loge(const char *fmt, ...)
@@ -50,3 +50,5 @@ Vec3::operator=(const Vec3 &other)
     z_ = other.z_;
     return *this;
 }
+
+SGE_NS_END;

@@ -10,7 +10,7 @@
 #include <stdexcept>
 #include "FiniteStateMachine.h"
 #include "../utils/Utils.h"
-SGE_NS_USING;
+SGE_NS_BEGIN;
 
 
 FiniteStateMachine::FiniteStateMachine()
@@ -29,10 +29,26 @@ FiniteStateMachine::~FiniteStateMachine()
 }
 
 
+void FiniteStateMachine::addTransitionRule(const std::string& state, const std::string& next)
+{
+    if (!Utils::mapContainsKey(table_, state))
+    {
+        table_[state] = new std::set<std::string>();
+    }
+    table_[state]->insert(next);
+}
+
+
 const std::string&
 FiniteStateMachine::getCurrentState() const
 {
     return state_;
+}
+
+
+bool FiniteStateMachine::isKnownState(const std::string& state)
+{
+    return Utils::mapContainsKey(table_, state);
 }
 
 
@@ -50,17 +66,10 @@ void FiniteStateMachine::transitionTo(std::string& nextState)
 }
 
 
-void FiniteStateMachine::addTransitionRule(const std::string& state, const std::string& next)
-{
-    if (!Utils::mapContainsKey(table_, state))
-    {
-        table_[state] = new std::set<std::string>();
-    }
-    table_[state]->insert(next);
-}
-
-
 void FiniteStateMachine::onTransition(const std::string& oldState, const std::string& newState)
 {
     // NOOP
 }
+
+
+SGE_NS_END;

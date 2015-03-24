@@ -9,7 +9,8 @@
 // The definitions below are exported
 #pragma GCC visibility push(default)
 
-#include "actors/ActorComponentFactory.h"
+#include "app/Application.h"
+#include "utils/Utils.h"
 
 #pragma GCC visibility pop
 #endif // __SGE_H__

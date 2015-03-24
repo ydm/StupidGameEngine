@@ -6,7 +6,7 @@
 
 #include <stdexcept>
 #include "ActorComponent.h"
-SGE_NS_USING;
+SGE_NS_BEGIN;
 
 
 ActorComponent::ActorComponent() : owner_(nullptr)      {}
@@ -22,3 +22,6 @@ void ActorComponent::setOwner(Actor *owner)
     }
     owner_ = owner;
 }
+
+
+SGE_NS_END;

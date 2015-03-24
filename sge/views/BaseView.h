@@ -12,13 +12,14 @@
 #include "../sge_base.h"
 SGE_NS_BEGIN;
 
+
 class BaseView
 {
 public:
     BaseView();
     virtual ~BaseView();
-    virtual void update(const float dt) = 0;
 };
+
 
 SGE_NS_END;
 #endif // SGE_BASE_VIEW_H__

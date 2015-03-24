@@ -22,7 +22,6 @@
 SGE_NS_BEGIN;
 void loge(const char *fmt, ...);
 
-
 // ========================
 // Data structures
 // ========================

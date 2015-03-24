@@ -7,7 +7,7 @@
 //
 
 #include "TransformComponent.h"
-SGE_NS_USING;
+SGE_NS_BEGIN;
 
 
 TransformComponent::TransformComponent()
@@ -31,3 +31,6 @@ void TransformComponent::setPosition(const Vec3& pos)
 {
     position_ = pos;
 }
+
+
+SGE_NS_END;

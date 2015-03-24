@@ -6,34 +6,7 @@
 	objectVersion = 46;
 	objects = {
 
-/* Begin PBXBuildFile section */
-		487FFA3B1ABB98D9000F9A13 /* sge.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA3A1ABB98D9000F9A13 /* sge.h */; };
-		487FFA561ABB9987000F9A13 /* Actor.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA441ABB9987000F9A13 /* Actor.h */; };
-		487FFA571ABB9987000F9A13 /* ActorComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA451ABB9987000F9A13 /* ActorComponent.cpp */; };
-		487FFA581ABB9987000F9A13 /* ActorComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA461ABB9987000F9A13 /* ActorComponent.h */; };
-		487FFA5B1ABB9987000F9A13 /* ActorFactory.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA491ABB9987000F9A13 /* ActorFactory.cpp */; };
-		487FFA5C1ABB9987000F9A13 /* ActorFactory.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA4A1ABB9987000F9A13 /* ActorFactory.h */; };
-		487FFA5E1ABB9987000F9A13 /* sge_base.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA4D1ABB9987000F9A13 /* sge_base.cpp */; };
-		487FFA5F1ABB9987000F9A13 /* sge_base.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA4E1ABB9987000F9A13 /* sge_base.h */; };
-		487FFA631ABB9987000F9A13 /* HasID.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA531ABB9987000F9A13 /* HasID.cpp */; };
-		487FFA641ABB9987000F9A13 /* HasID.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA541ABB9987000F9A13 /* HasID.h */; };
-		487FFA6F1ABBA7C6000F9A13 /* TransformComponent.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA6D1ABBA7C6000F9A13 /* TransformComponent.cpp */; };
-		487FFA701ABBA7C6000F9A13 /* TransformComponent.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA6E1ABBA7C6000F9A13 /* TransformComponent.h */; };
-		487FFA721ABBABCA000F9A13 /* Actor.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA711ABBABCA000F9A13 /* Actor.cpp */; };
-		487FFA801ABC5B00000F9A13 /* BaseView.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA7E1ABC5B00000F9A13 /* BaseView.h */; };
-		487FFA821ABC5CAA000F9A13 /* BaseView.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA811ABC5CAA000F9A13 /* BaseView.cpp */; };
-		487FFA861ABC79F6000F9A13 /* BaseLogic.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA841ABC79F6000F9A13 /* BaseLogic.cpp */; };
-		487FFA871ABC79F6000F9A13 /* BaseLogic.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA851ABC79F6000F9A13 /* BaseLogic.h */; };
-		487FFA8E1ABD5C7B000F9A13 /* Application.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA8C1ABD5C7B000F9A13 /* Application.cpp */; };
-		487FFA8F1ABD5C7B000F9A13 /* Application.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA8D1ABD5C7B000F9A13 /* Application.h */; };
-		487FFA921ABD6480000F9A13 /* FiniteStateMachine.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA901ABD6480000F9A13 /* FiniteStateMachine.cpp */; };
-		487FFA931ABD6480000F9A13 /* FiniteStateMachine.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA911ABD6480000F9A13 /* FiniteStateMachine.h */; };
-		487FFA961ABEC0C3000F9A13 /* Utils.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 487FFA941ABEC0C3000F9A13 /* Utils.cpp */; };
-		487FFA971ABEC0C3000F9A13 /* Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = 487FFA951ABEC0C3000F9A13 /* Utils.h */; };
-/* End PBXBuildFile section */
-
 /* Begin PBXFileReference section */
-		487FFA371ABB98D9000F9A13 /* libsge.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libsge.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		487FFA3A1ABB98D9000F9A13 /* sge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sge.h; sourceTree = "<group>"; };
 		487FFA441ABB9987000F9A13 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		487FFA451ABB9987000F9A13 /* ActorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActorComponent.cpp; sourceTree = "<group>"; };
@@ -59,16 +32,6 @@
 		487FFA951ABEC0C3000F9A13 /* Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
-/* Begin PBXFrameworksBuildPhase section */
-		487FFA341ABB98D9000F9A13 /* Frameworks */ = {
-			isa = PBXFrameworksBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXFrameworksBuildPhase section */
-
 /* Begin PBXGroup section */
 		487FFA2C1ABB9819000F9A13 = {
 			isa = PBXGroup;
@@ -81,7 +44,6 @@
 		487FFA381ABB98D9000F9A13 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				487FFA371ABB98D9000F9A13 /* libsge.a */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -93,11 +55,11 @@
 				487FFA8B1ABD5C7B000F9A13 /* app */,
 				487FFA4C1ABB9987000F9A13 /* events */,
 				487FFA831ABC79D5000F9A13 /* logic */,
-				487FFA4E1ABB9987000F9A13 /* sge_base.h */,
-				487FFA4D1ABB9987000F9A13 /* sge_base.cpp */,
 				487FFA521ABB9987000F9A13 /* utils */,
 				487FFA7C1ABC5A79000F9A13 /* views */,
 				487FFA3A1ABB98D9000F9A13 /* sge.h */,
+				487FFA4E1ABB9987000F9A13 /* sge_base.h */,
+				487FFA4D1ABB9987000F9A13 /* sge_base.cpp */,
 			);
 			path = sge;
 			sourceTree = "<group>";
@@ -166,58 +128,11 @@
 		};
 /* End PBXGroup section */
 
-/* Begin PBXHeadersBuildPhase section */
-		487FFA351ABB98D9000F9A13 /* Headers */ = {
-			isa = PBXHeadersBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				487FFA5F1ABB9987000F9A13 /* sge_base.h in Headers */,
-				487FFA701ABBA7C6000F9A13 /* TransformComponent.h in Headers */,
-				487FFA561ABB9987000F9A13 /* Actor.h in Headers */,
-				487FFA8F1ABD5C7B000F9A13 /* Application.h in Headers */,
-				487FFA5C1ABB9987000F9A13 /* ActorFactory.h in Headers */,
-				487FFA3B1ABB98D9000F9A13 /* sge.h in Headers */,
-				487FFA971ABEC0C3000F9A13 /* Utils.h in Headers */,
-				487FFA641ABB9987000F9A13 /* HasID.h in Headers */,
-				487FFA581ABB9987000F9A13 /* ActorComponent.h in Headers */,
-				487FFA931ABD6480000F9A13 /* FiniteStateMachine.h in Headers */,
-				487FFA801ABC5B00000F9A13 /* BaseView.h in Headers */,
-				487FFA871ABC79F6000F9A13 /* BaseLogic.h in Headers */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXHeadersBuildPhase section */
-
-/* Begin PBXNativeTarget section */
-		487FFA361ABB98D9000F9A13 /* sge */ = {
-			isa = PBXNativeTarget;
-			buildConfigurationList = 487FFA401ABB98D9000F9A13 /* Build configuration list for PBXNativeTarget "sge" */;
-			buildPhases = (
-				487FFA331ABB98D9000F9A13 /* Sources */,
-				487FFA341ABB98D9000F9A13 /* Frameworks */,
-				487FFA351ABB98D9000F9A13 /* Headers */,
-			);
-			buildRules = (
-			);
-			dependencies = (
-			);
-			name = sge;
-			productName = sge;
-			productReference = 487FFA371ABB98D9000F9A13 /* libsge.a */;
-			productType = "com.apple.product-type.library.static";
-		};
-/* End PBXNativeTarget section */
-
 /* Begin PBXProject section */
 		487FFA2D1ABB9819000F9A13 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastUpgradeCheck = 0620;
-				TargetAttributes = {
-					487FFA361ABB98D9000F9A13 = {
-						CreatedOnToolsVersion = 6.2;
-					};
-				};
 			};
 			buildConfigurationList = 487FFA301ABB9819000F9A13 /* Build configuration list for PBXProject "StupidGameEngine" */;
 			compatibilityVersion = "Xcode 3.2";
@@ -231,31 +146,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				487FFA361ABB98D9000F9A13 /* sge */,
 			);
 		};
 /* End PBXProject section */
-
-/* Begin PBXSourcesBuildPhase section */
-		487FFA331ABB98D9000F9A13 /* Sources */ = {
-			isa = PBXSourcesBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-				487FFA861ABC79F6000F9A13 /* BaseLogic.cpp in Sources */,
-				487FFA721ABBABCA000F9A13 /* Actor.cpp in Sources */,
-				487FFA8E1ABD5C7B000F9A13 /* Application.cpp in Sources */,
-				487FFA631ABB9987000F9A13 /* HasID.cpp in Sources */,
-				487FFA5E1ABB9987000F9A13 /* sge_base.cpp in Sources */,
-				487FFA821ABC5CAA000F9A13 /* BaseView.cpp in Sources */,
-				487FFA5B1ABB9987000F9A13 /* ActorFactory.cpp in Sources */,
-				487FFA6F1ABBA7C6000F9A13 /* TransformComponent.cpp in Sources */,
-				487FFA961ABEC0C3000F9A13 /* Utils.cpp in Sources */,
-				487FFA921ABD6480000F9A13 /* FiniteStateMachine.cpp in Sources */,
-				487FFA571ABB9987000F9A13 /* ActorComponent.cpp in Sources */,
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-		};
-/* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
 		487FFA311ABB9819000F9A13 /* Debug */ = {
@@ -270,89 +163,6 @@
 			};
 			name = Release;
 		};
-		487FFA411ABB98D9000F9A13 /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_DYNAMIC_NO_PIC = NO;
-				GCC_ENABLE_CPP_EXCEPTIONS = YES;
-				GCC_ENABLE_CPP_RTTI = YES;
-				GCC_OPTIMIZATION_LEVEL = 0;
-				GCC_PREPROCESSOR_DEFINITIONS = (
-					"DEBUG=1",
-					"$(inherited)",
-				);
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = YES;
-				ONLY_ACTIVE_ARCH = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Debug;
-		};
-		487FFA421ABB98D9000F9A13 /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
-				CLANG_CXX_LANGUAGE_STANDARD = "gnu++0x";
-				CLANG_CXX_LIBRARY = "libc++";
-				CLANG_ENABLE_MODULES = YES;
-				CLANG_ENABLE_OBJC_ARC = YES;
-				CLANG_WARN_BOOL_CONVERSION = YES;
-				CLANG_WARN_CONSTANT_CONVERSION = YES;
-				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
-				CLANG_WARN_EMPTY_BODY = YES;
-				CLANG_WARN_ENUM_CONVERSION = YES;
-				CLANG_WARN_INT_CONVERSION = YES;
-				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
-				CLANG_WARN_UNREACHABLE_CODE = YES;
-				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				COPY_PHASE_STRIP = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
-				ENABLE_NS_ASSERTIONS = NO;
-				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				EXECUTABLE_PREFIX = lib;
-				GCC_C_LANGUAGE_STANDARD = gnu99;
-				GCC_ENABLE_CPP_EXCEPTIONS = YES;
-				GCC_ENABLE_CPP_RTTI = YES;
-				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
-				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
-				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
-				GCC_WARN_UNDECLARED_SELECTOR = YES;
-				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
-				GCC_WARN_UNUSED_FUNCTION = YES;
-				GCC_WARN_UNUSED_VARIABLE = YES;
-				MACOSX_DEPLOYMENT_TARGET = 10.10;
-				MTL_ENABLE_DEBUG_INFO = NO;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-				SDKROOT = macosx;
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -364,14 +174,6 @@
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
-		};
-		487FFA401ABB98D9000F9A13 /* Build configuration list for PBXNativeTarget "sge" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				487FFA411ABB98D9000F9A13 /* Debug */,
-				487FFA421ABB98D9000F9A13 /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
 		};
 /* End XCConfigurationList section */
 	};

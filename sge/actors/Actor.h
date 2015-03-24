@@ -19,7 +19,8 @@ public:
     Actor();
     virtual ~Actor();  // Deletes components
     void addComponent(const std::string& name, ActorComponent *component);
-    ActorComponent *getComponent(const std::string& name);
+    ActorComponent *getComponent(const std::string& name) const;
+    void update(const float dt);
 
 private:
     std::map<std::string, ActorComponent *> components_;

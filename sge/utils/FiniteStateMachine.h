@@ -21,11 +21,13 @@ class FiniteStateMachine
 public:
     FiniteStateMachine();
     virtual ~FiniteStateMachine();
+
+    void addTransitionRule(const std::string& state, const std::string& next);
     const std::string& getCurrentState() const;
+    bool isKnownState(const std::string& state);
     void transitionTo(std::string& nextState);
 
 protected:
-    void addTransitionRule(const std::string& state, const std::string& next);
     virtual void onTransition(const std::string& oldState, const std::string& newState);
 
 private:
