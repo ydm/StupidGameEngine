@@ -17,20 +17,29 @@ SGE_NS_BEGIN;
 class ActorManager
 {
 public:
+    typedef std::map<Actor::ID, Actor *> ActorsMap;
+    typedef std::map<std::string, ActorsMap *> StateActorsMap;
+
     ActorManager();
     virtual ~ActorManager();
 
-    Actor *createActor();
+    Actor *createGlobalActor();
     Actor *createActorForState(const std::string& state);
 
-    Actor *getActor(const Actor::ID ident) const;
+    Actor *getGlobalActor(const Actor::ID ident) const;
     Actor *getActorForState(const std::string& state, const Actor::ID ident) const;
 
-private:
-    Actor *createActor_();
+    const ActorsMap *getGlobalActors() const;
+    const ActorsMap *getActorsForState(const std::string& state) const;
 
-    std::map<Actor::ID, Actor *> actors_;
-    std::map<std::string, std::map<Actor::ID, Actor *> *> actorsForState_;
+protected:
+    virtual Actor *createActor_();
+
+private:
+    ActorsMap *getOrCreateActorsForState(const std::string& state);
+
+    ActorsMap globalActors_;
+    StateActorsMap actorsForState_;
     Actor::ID nextID_;
 };
 

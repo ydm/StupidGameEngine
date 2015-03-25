@@ -11,66 +11,37 @@
 SGE_NS_BEGIN;
 
 
-BaseLogic::BaseLogic()
-: actors_()
+BaseLogic::BaseLogic(ActorManager *actorManager)
+: actorManager_(actorManager)
 , currentStateActors_(nullptr)
-, globalActors_()
 {
+    if (!actorManager)
+    {
+        throw new std::runtime_error("actorManager is null");
+    }
 }
 
 
 BaseLogic::~BaseLogic()
 {
-    for (std::pair<std::string, std::list<Actor *> *> p : actors_)
-    {
-        std::list<Actor *> *seq = p.second;
-        for (Actor *actor : *seq)
-        {
-            delete actor;
-        }
-        delete seq;
-    }
+    currentStateActors_ = nullptr;
 }
 
 
 void BaseLogic::update(const float dt)
 {
-    for (auto a : globalActors_)
+    for (auto& p : *actorManager_->getGlobalActors())
     {
-        a->update(dt);
+        p.second->update(dt);
     }
 
     if (currentStateActors_)
     {
-        for (auto a : *currentStateActors_)
+        for (auto& p : *currentStateActors_)
         {
-            a->update(dt);
+            p.second->update(dt);
         }
     }
-}
-
-
-void BaseLogic::addActorForState(std::string& state, Actor *actor)
-{
-    if (actor)
-    {
-        auto actors = getActorsForState(state);
-        if (actors)
-        {
-            actors->push_back(actor);
-        }
-    }
-    else
-    {
-        loge("%s: actor is null", __func__);
-    }
-    actors_[state]->push_back(actor);
-}
-
-
-void BaseLogic::addGlobalActor(Actor *actor)
-{
-    globalActors_.push_back(actor);
 }
 
 
@@ -80,27 +51,11 @@ void BaseLogic::addGlobalActor(Actor *actor)
 
 void BaseLogic::onTransition(const std::string& oldState, const std::string& newState)
 {
-    currentStateActors_ = getActorsForState(newState);
-}
-
-
-// --------+
-// Private |
-// --------+
-
-std::list<Actor *> *
-BaseLogic::getActorsForState(const std::string& state)
-{
-    if (isKnownState(state))
-    {
-        if (!Utils::mapContainsKey(actors_, state))
-        {
-            actors_[state] = new std::list<Actor *>();
-        }
-        return actors_[state];
-    }
-    loge("BaseLogic::getActorsForState: unknown state %s", state.c_str());
-    return nullptr;
+    // ydm: We won't be changing it, of course, but since the
+    // currentStateActors_ handle can't be const, we need to cast.
+    currentStateActors_ = const_cast<ActorManager::ActorsMap *>(
+        actorManager_->getActorsForState(newState)
+    );
 }
 
 

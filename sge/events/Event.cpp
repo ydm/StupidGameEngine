@@ -13,7 +13,7 @@ SGE_NS_BEGIN;
 // const char Event::DELIMITER(':');
 
 
-Event::Event(ID ident)
+Event::Event(const ID ident)
 : THasID(ident)
 {
 }

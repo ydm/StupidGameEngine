@@ -10,7 +10,7 @@
 #define __SGE_BASE_LOGIC_H__
 
 #include <list>
-#include "../actors/Actor.h"
+#include "../actors/ActorManager.h"
 #include "../utils/FiniteStateMachine.h"
 SGE_NS_BEGIN;
 
@@ -19,22 +19,19 @@ SGE_NS_BEGIN;
 class BaseLogic : public FiniteStateMachine
 {
 public:
-    BaseLogic();
+    BaseLogic(ActorManager *actorManager);
     virtual ~BaseLogic();
     virtual void update(const float dt);
 
-    void addActorForState(std::string& state, Actor *actor);
-    void addGlobalActor(Actor *actor);
+    ActorManager *getActorManager() const;
+    // void setActorManager(ActorManager *actorManager);
 
 protected:
     void onTransition(const std::string& oldState, const std::string& newState) override;
 
 private:
-    std::list<Actor *> *getActorsForState(const std::string& state);
-
-    std::map<std::string, std::list<Actor *> *>  actors_;
-    std::list<Actor *>                          *currentStateActors_;
-    std::list<Actor *>                           globalActors_;
+    ActorManager            *actorManager_;
+    ActorManager::ActorsMap *currentStateActors_;
 };
 
 

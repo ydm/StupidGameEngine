@@ -58,4 +58,9 @@ Vec3::operator=(const Vec3 &other)
 }
 
 
+double Vec3::getX() const {return x_;}
+double Vec3::getY() const {return y_;}
+double Vec3::getZ() const {return z_;}
+
+
 SGE_NS_END;

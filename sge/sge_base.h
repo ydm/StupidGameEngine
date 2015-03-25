@@ -32,6 +32,10 @@ public:
     virtual ~Vec3();
     Vec3& operator=(const Vec3& other);
 
+    double getX() const;
+    double getY() const;
+    double getZ() const;
+
 private:
     double x_, y_, z_;
 };

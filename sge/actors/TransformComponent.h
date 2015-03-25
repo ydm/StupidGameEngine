@@ -19,7 +19,7 @@ public:
     TransformComponent();
     virtual ~TransformComponent();
 
-    Vec3 getPosition() const;
+    const Vec3& getPosition() const;
     void setPosition(const Vec3& pos);
 
 private:

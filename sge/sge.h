@@ -10,6 +10,10 @@
 #pragma GCC visibility push(default)
 
 #include "app/Application.h"
+
+#include "actors/Actor.h"
+#include "actors/TransformComponent.h"
+
 #include "events/Event.h"
 #include "utils/Utils.h"
 

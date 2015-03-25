@@ -21,7 +21,7 @@ TransformComponent::~TransformComponent()
 }
 
 
-Vec3
+const Vec3&
 TransformComponent::getPosition() const
 {
     return position_;

@@ -19,7 +19,7 @@ class Event : private THasID<uint32_t>
 public:
     typedef ID EventType;
 
-    Event(EventType ident);
+    Event(const EventType ident);
     Event(std::istrstream& is);
     virtual ~Event();
 
