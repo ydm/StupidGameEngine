@@ -24,6 +24,7 @@ public:
 
 private:
     Vec3 position_;
+    // ydm: TODO scale, rotation, etc.
 };
 
 

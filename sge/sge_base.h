@@ -10,7 +10,6 @@
 // ========================
 // Namespace
 // ========================
-
 #define SGE_NS_BEGIN namespace sge {
 #define SGE_NS_END }
 #define SGE_NS_USING using namespace sge
@@ -36,6 +35,7 @@ public:
 private:
     double x_, y_, z_;
 };
+
 
 SGE_NS_END;
 #endif // __SGE_BASEH_H__

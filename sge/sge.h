@@ -10,6 +10,7 @@
 #pragma GCC visibility push(default)
 
 #include "app/Application.h"
+#include "events/Event.h"
 #include "utils/Utils.h"
 
 #pragma GCC visibility pop

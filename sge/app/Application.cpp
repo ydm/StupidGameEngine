@@ -11,7 +11,8 @@ SGE_NS_BEGIN;
 
 
 Application::Application()
-: logic_(nullptr)
+: eventManager_()
+, logic_(nullptr)
 , views_()
 {
 }

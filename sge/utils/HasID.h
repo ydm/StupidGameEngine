@@ -8,25 +8,48 @@
 #ifndef __SGE_HAS_ID_H__
 #define __SGE_HAS_ID_H__
 
-#include <cstddef>
+#include <cinttypes>
 #include "../sge_base.h"
 SGE_NS_BEGIN;
 
 
-class HasID
+template<typename T>
+class THasID
 {
 public:
-    typedef size_t ID;
-    static const ID ID_INVALID;
+    typedef T ID;
 
-    HasID(ID ident = ID_INVALID);
-    virtual ~HasID();
+    THasID(const ID ident)
+    : id_(ident)
+    {
+    }
 
-    ID getID() const;
-    void setID(const ID ident);
+    virtual ~THasID()
+    {
+    }
+
+    virtual ID getID() const
+    {
+        return id_;
+    }
+
+    virtual void setID(const ID ident)
+    {
+        id_ = ident;
+    }
 
 private:
     ID id_;
+};
+
+
+class HasID : public THasID<uint32_t>
+{
+public:
+    static const ID ID_INVALID;
+
+    HasID(const ID ident);
+    virtual ~HasID();
 };
 
 

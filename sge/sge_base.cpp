@@ -10,6 +10,9 @@
 SGE_NS_BEGIN;
 
 
+// ========================
+// Logging
+// ========================
 void loge(const char *fmt, ...)
 {
     va_list args;
@@ -21,6 +24,9 @@ void loge(const char *fmt, ...)
 }
 
 
+// ========================
+// Vec3
+// ========================
 Vec3::Vec3(double x, double y, double z)
 : x_(x)
 , y_(y)
@@ -50,5 +56,6 @@ Vec3::operator=(const Vec3 &other)
     z_ = other.z_;
     return *this;
 }
+
 
 SGE_NS_END;

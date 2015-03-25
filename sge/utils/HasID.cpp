@@ -9,31 +9,17 @@
 SGE_NS_BEGIN;
 
 
-const HasID::ID
-HasID::ID_INVALID = -1;
+const HasID::ID HasID::ID_INVALID = -1;
 
 
 HasID::HasID(const ID ident)
+: THasID(ident)
 {
-    setID(ident);
 }
 
 
 HasID::~HasID()
 {
-}
-
-
-HasID::ID
-HasID::getID() const
-{
-    return id_;
-}
-
-
-void HasID::setID(const ID ident)
-{
-    id_ = ident;
 }
 
 

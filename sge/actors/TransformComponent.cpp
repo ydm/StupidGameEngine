@@ -20,6 +20,7 @@ TransformComponent::~TransformComponent()
 {
 }
 
+
 Vec3
 TransformComponent::getPosition() const
 {
