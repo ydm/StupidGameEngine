@@ -28,6 +28,18 @@ BaseLogic::~BaseLogic()
 }
 
 
+// ----------+
+// Protected |
+// ----------+
+
+void BaseLogic::init()
+{
+    initStates();
+    initActors();
+    postInit();
+}
+
+
 void BaseLogic::update(const float dt)
 {
     for (auto& p : *actorManager_->getGlobalActors())
@@ -45,9 +57,12 @@ void BaseLogic::update(const float dt)
 }
 
 
-// ----------+
-// Protected |
-// ----------+
+ActorManager *
+BaseLogic::getActorManager() const
+{
+    return actorManager_;
+}
+
 
 void BaseLogic::onTransition(const std::string& oldState, const std::string& newState)
 {

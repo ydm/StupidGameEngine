@@ -52,7 +52,7 @@ bool FiniteStateMachine::isKnownState(const std::string& state)
 }
 
 
-void FiniteStateMachine::transitionTo(std::string& nextState)
+void FiniteStateMachine::transitionTo(const std::string& nextState)
 {
     // map::at() throws runtime exception in case of bad key
     std::set<std::string> *valid = table_.at(state_);

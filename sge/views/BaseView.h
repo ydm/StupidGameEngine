@@ -9,7 +9,7 @@
 #ifndef __SGE_BASE_VIEW_H__
 #define __SGE_BASE_VIEW_H__
 
-#include "../sge_base.h"
+#include "../logic/BaseLogic.h"
 SGE_NS_BEGIN;
 
 
@@ -18,6 +18,8 @@ class BaseView
 public:
     BaseView();
     virtual ~BaseView();
+
+    virtual void init(const BaseLogic *logic);
 };
 
 

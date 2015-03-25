@@ -23,10 +23,14 @@ public:
     virtual ~BaseLogic();
     virtual void update(const float dt);
 
-    ActorManager *getActorManager() const;
-    // void setActorManager(ActorManager *actorManager);
-
 protected:
+    // Init stages
+    virtual void init();
+    virtual void initStates() = 0;
+    virtual void initActors() = 0;
+    virtual void postInit()  = 0;
+
+    ActorManager *getActorManager() const;
     void onTransition(const std::string& oldState, const std::string& newState) override;
 
 private:

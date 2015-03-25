@@ -58,6 +58,7 @@ void Application::addView(BaseView *view)
 {
     if (view)
     {
+        view->init(logic_);
         views_.push_back(view);
     }
 }

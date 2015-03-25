@@ -12,14 +12,14 @@ SGE_NS_BEGIN;
 
 
 EventManager::EventManager()
-: listeners_()
+: listenersForType_()
 {
 }
 
 
 EventManager::~EventManager()
 {
-    for (auto& kv : listeners_)
+    for (auto& kv : listenersForType_)
     {
         delete kv.second;
     }
@@ -35,10 +35,17 @@ void EventManager::addListener(const Event::EventType type, EventListener listen
 
 void EventManager::notifyListeners(const Event& e) const
 {
-    std::list<EventListener> *ls(nullptr);
+    // 1. Notify global listeners
+    for (auto& listener : globalListeners_)
+    {
+        listener(e);
+    }
+
+    // 2. Notify listeners bound for this type of event only
+    EventListenerList *ls(nullptr);
     try
     {
-        ls = listeners_.at(e.getEventType());
+        ls = listenersForType_.at(e.getEventType());
     }
     catch (std::out_of_range)
     {
@@ -54,13 +61,14 @@ void EventManager::notifyListeners(const Event& e) const
 }
 
 
-std::list<EventManager::EventListener> *EventManager::getListenersForType(const Event::EventType tp)
+EventManager::EventListenerList *
+EventManager::getListenersForType(const Event::EventType tp)
 {
-    if (!Utils::mapContainsKey(listeners_, tp))
+    if (!Utils::mapContainsKey(listenersForType_, tp))
     {
-        listeners_[tp] = new std::list<EventListener>();
+        listenersForType_[tp] = new EventListenerList();
     }
-    return listeners_[tp];
+    return listenersForType_[tp];
 }
 
 

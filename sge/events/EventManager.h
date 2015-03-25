@@ -18,6 +18,8 @@ class EventManager
 {
 public:
     typedef std::function<void (const Event&)> EventListener;
+    typedef std::list<EventListener> EventListenerList;
+    typedef std::map<Event::EventType, EventListenerList *> TypeToList;
 
     EventManager();
     virtual ~EventManager();
@@ -27,8 +29,9 @@ public:
     void notifyListeners(const Event& type) const;
 
 private:
-    std::list<EventListener> *getListenersForType(const Event::EventType);
-    std::map<Event::EventType, std::list<EventListener> *> listeners_;
+    EventListenerList *getListenersForType(const Event::EventType);
+    TypeToList listenersForType_;
+    EventListenerList globalListeners_;
 };
 
 

@@ -20,4 +20,9 @@ BaseView::~BaseView()
 }
 
 
+void BaseView::init(const sge::BaseLogic *logic)
+{
+}
+
+
 SGE_NS_END;

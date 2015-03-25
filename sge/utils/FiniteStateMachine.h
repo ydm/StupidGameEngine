@@ -25,7 +25,7 @@ public:
     void addTransitionRule(const std::string& state, const std::string& next);
     const std::string& getCurrentState() const;
     bool isKnownState(const std::string& state);
-    void transitionTo(std::string& nextState);
+    void transitionTo(const std::string& nextState);
 
 protected:
     virtual void onTransition(const std::string& oldState, const std::string& newState);
