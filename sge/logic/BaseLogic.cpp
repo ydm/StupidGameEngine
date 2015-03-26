@@ -84,7 +84,7 @@ void BaseLogic::onTransition(const std::string& oldState, const std::string& new
 
     // Now notify of the state change
     const EventStateChange e(oldState, newState);
-    getApplication()->getEventManager()->notifyListeners(e);
+    getApplication()->getEventManager()->notifyListeners(&e);
 }
 
 

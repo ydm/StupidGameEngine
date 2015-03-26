@@ -26,7 +26,7 @@ public:
 
     void addListener(const Event::EventType type, EventListener listener);
     // void removeListener(const Event::EventType type, ...);
-    void notifyListeners(const Event& type) const;
+    void notifyListeners(const Event *type) const;
 
 private:
     EventListenerList *getListenersForType(const Event::EventType);

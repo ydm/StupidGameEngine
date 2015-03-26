@@ -15,7 +15,7 @@ EventManager::EventManager()
 : globalListeners_()
 , listenersForType_()
 {
-    logi("CONSTRUCTOR: %lu", globalListeners_.size());
+    logi("CONSTRUCTOR: %lu, %lu", globalListeners_.size(), listenersForType_.size());
 }
 
 
@@ -37,22 +37,19 @@ void EventManager::addListener(const Event::EventType type, EventListener listen
 }
 
 
-void EventManager::notifyListeners(const Event& e) const
+void EventManager::notifyListeners(const Event *e) const
 {
     // 1. Notify global listeners
-    /*
-    logi("global listeners: %lu", globalListeners_.size());
-    for (auto listener : globalListeners_)
+    for (auto func : globalListeners_)
     {
-        listener(&e);
+        func(e);
     }
-    */
 
     // 2. Notify listeners bound for this type of event only
     EventListenerList *ls(nullptr);
     try
     {
-        ls = listenersForType_.at(e.getEventType());
+        ls = listenersForType_.at(e->getEventType());
     }
     catch (std::out_of_range)
     {
@@ -62,7 +59,7 @@ void EventManager::notifyListeners(const Event& e) const
     {
         for (EventListener func : *ls)
         {
-            func(&e);
+            func(e);
         }
     }
 }
