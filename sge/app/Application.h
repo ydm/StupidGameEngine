@@ -23,13 +23,17 @@ public:
     virtual ~Application();
     void update(const float dt);
 
-    EventManager *getEventManager();
-    void setLogic(BaseLogic *logic);
     void addView(BaseView *view);
+    EventManager *getEventManager() const;
+    BaseLogic *getLogic() const;
+    void setLogic(BaseLogic *logic);
+
+    void ready();
 
 private:
     EventManager eventManager_;
     BaseLogic *logic_;
+    bool started_;
     std::list<BaseView *> views_;
 };
 

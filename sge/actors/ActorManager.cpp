@@ -82,7 +82,12 @@ ActorManager::getGlobalActors() const
 const ActorManager::ActorsMap *
 ActorManager::getActorsForState(const std::string& state) const
 {
-    return actorsForState_.at(state);
+    try {
+        return actorsForState_.at(state);
+    } catch (std::out_of_range) {
+        return nullptr;
+    }
+
 }
 
 

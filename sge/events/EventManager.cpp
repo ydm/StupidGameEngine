@@ -12,18 +12,22 @@ SGE_NS_BEGIN;
 
 
 EventManager::EventManager()
-: listenersForType_()
+: globalListeners_()
+, listenersForType_()
 {
+    logi("CONSTRUCTOR: %lu", globalListeners_.size());
 }
 
 
 EventManager::~EventManager()
 {
+    globalListeners_.clear();
     for (auto& kv : listenersForType_)
     {
+        kv.second->clear();
         delete kv.second;
     }
-    // listeners_.clear();
+    listenersForType_.clear();
 }
 
 
@@ -36,10 +40,13 @@ void EventManager::addListener(const Event::EventType type, EventListener listen
 void EventManager::notifyListeners(const Event& e) const
 {
     // 1. Notify global listeners
-    for (auto& listener : globalListeners_)
+    /*
+    logi("global listeners: %lu", globalListeners_.size());
+    for (auto listener : globalListeners_)
     {
-        listener(e);
+        listener(&e);
     }
+    */
 
     // 2. Notify listeners bound for this type of event only
     EventListenerList *ls(nullptr);
@@ -55,7 +62,7 @@ void EventManager::notifyListeners(const Event& e) const
     {
         for (EventListener func : *ls)
         {
-            func(e);
+            func(&e);
         }
     }
 }

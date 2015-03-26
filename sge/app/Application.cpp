@@ -13,6 +13,7 @@ SGE_NS_BEGIN;
 Application::Application()
 : eventManager_()
 , logic_(nullptr)
+, started_(false)
 , views_()
 {
 }
@@ -25,12 +26,48 @@ Application::~Application()
     {
         delete v;
     }
+    views_.clear();
 }
 
 
 void Application::update(const float dt)
 {
-    logic_->update(dt);
+    return;
+    static bool printed = false;
+    if (!printed)
+    {
+        printed = true;
+        logi("App::update(%f)", dt);
+    }
+    // logic_->update(dt);
+}
+
+
+void Application::addView(BaseView *view)
+{
+    if (view)
+    {
+        view->init(this);
+        views_.push_back(view);
+    }
+    else
+    {
+        logw("Application::addView: invalid view");
+    }
+}
+
+
+EventManager *
+Application::getEventManager() const
+{
+    return const_cast<EventManager *>(&eventManager_);
+}
+
+
+BaseLogic *
+Application::getLogic() const
+{
+    return logic_;
 }
 
 
@@ -39,7 +76,7 @@ void Application::setLogic(BaseLogic *logic)
     // ydm: I like simple things, so logic_ can be set only once.
     if (logic_)
     {
-        loge("%s: logic object is already set", __func__);
+        logw("Application::setLogic: logic object is already set");
         return;
     }
 
@@ -49,18 +86,14 @@ void Application::setLogic(BaseLogic *logic)
     }
     else
     {
-        loge("%s: bad LOGIC argument", __func__);
+        logw("Application::setLogic: bad LOGIC argument");
     }
 }
 
 
-void Application::addView(BaseView *view)
+void Application::ready()
 {
-    if (view)
-    {
-        view->init(logic_);
-        views_.push_back(view);
-    }
+    logic_->ready();
 }
 
 

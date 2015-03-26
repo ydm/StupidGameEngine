@@ -17,7 +17,7 @@ SGE_NS_BEGIN;
 class EventManager
 {
 public:
-    typedef std::function<void (const Event&)> EventListener;
+    typedef std::function<void (const Event *)> EventListener;
     typedef std::list<EventListener> EventListenerList;
     typedef std::map<Event::EventType, EventListenerList *> TypeToList;
 
@@ -25,13 +25,14 @@ public:
     virtual ~EventManager();
 
     void addListener(const Event::EventType type, EventListener listener);
-    // void removeListener(const Event::EventType type, EventListener listener);
+    // void removeListener(const Event::EventType type, ...);
     void notifyListeners(const Event& type) const;
 
 private:
     EventListenerList *getListenersForType(const Event::EventType);
-    TypeToList listenersForType_;
+    
     EventListenerList globalListeners_;
+    TypeToList listenersForType_;
 };
 
 

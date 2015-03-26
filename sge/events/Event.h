@@ -24,7 +24,6 @@ public:
     virtual ~Event();
 
     virtual EventType getEventType() const;
-
     virtual void serialize(std::ostrstream& os) const;
     virtual void deserialize(std::istrstream& is);
 

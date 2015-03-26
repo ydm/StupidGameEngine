@@ -19,8 +19,9 @@ SGE_NS_BEGIN;
 // 2**32 - 1 is the same as -1, and that's INVALID_ID :)
 // >>> from random import randint
 // >>> def gen(): print(hex(randint(0, 2**32 - 2)))
-static const Event::EventType EVENT_ACTOR_NEW  = 0x8bc09ac9;
-static const Event::EventType EVENT_ACTOR_MOVE = 0x297b6e01;
+static const Event::EventType EVENT_ACTOR_NEW    = 0x8bc09ac9;
+static const Event::EventType EVENT_ACTOR_MOVE   = 0x297b6e01;
+static const Event::EventType EVENT_STATE_CHANGE = 0x3f18527d;
 
 
 class EventActor : public Event
@@ -50,6 +51,20 @@ public:
     Vec3 getPosition() const;
 private:
     Vec3 pos_;
+};
+
+
+class EventStateChange : public Event
+{
+public:
+    EventStateChange(const std::string oldState, const std::string newState);
+    virtual ~EventStateChange();
+
+    const std::string& getOldState() const;
+    const std::string& getNewState() const;
+private:
+    std::string oldState_;
+    std::string newState_;
 };
 
 

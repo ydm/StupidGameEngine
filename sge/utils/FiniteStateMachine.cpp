@@ -59,10 +59,15 @@ void FiniteStateMachine::transitionTo(const std::string& nextState)
     if (!Utils::setContains(*valid, nextState))
     {
         std::ostringstream message;
-        message << __func__ << ": unknown next state '" << nextState << "'";
+        message << "FiniteStateMachine::transitionTo: unknown next state '" << nextState << "'";
         throw std::runtime_error(message.str());
     }
-    state_ = nextState;
+    else
+    {
+        const std::string old(state_);
+        state_ = nextState;
+        onTransition(old, state_);
+    }
 }
 
 

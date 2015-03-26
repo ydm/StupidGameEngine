@@ -6,7 +6,8 @@
 //
 //
 
-#include "BaseLogic.h"
+#include "../app/Application.h" // Includes BaseLogic.h
+#include "../events/CommonEvents.h"
 #include "../utils/Utils.h"
 SGE_NS_BEGIN;
 
@@ -25,18 +26,12 @@ BaseLogic::BaseLogic(ActorManager *actorManager)
 BaseLogic::~BaseLogic()
 {
     currentStateActors_ = nullptr;
+    delete actorManager_;
 }
 
 
-// ----------+
-// Protected |
-// ----------+
-
-void BaseLogic::init()
+void BaseLogic::ready()
 {
-    initStates();
-    initActors();
-    postInit();
 }
 
 
@@ -57,6 +52,17 @@ void BaseLogic::update(const float dt)
 }
 
 
+// ----------+
+// Protected |
+// ----------+
+
+Application *
+BaseLogic::getApplication() const
+{
+    return app_;
+}
+
+
 ActorManager *
 BaseLogic::getActorManager() const
 {
@@ -64,13 +70,21 @@ BaseLogic::getActorManager() const
 }
 
 
+void BaseLogic::init()
+{
+    initStates();
+    initActors();
+}
+
+
 void BaseLogic::onTransition(const std::string& oldState, const std::string& newState)
 {
-    // ydm: We won't be changing it, of course, but since the
-    // currentStateActors_ handle can't be const, we need to cast.
-    currentStateActors_ = const_cast<ActorManager::ActorsMap *>(
-        actorManager_->getActorsForState(newState)
-    );
+    // We cache the current state actors for faster access in update()
+    currentStateActors_ = actorManager_->getActorsForState(newState);
+
+    // Now notify of the state change
+    const EventStateChange e(oldState, newState);
+    getApplication()->getEventManager()->notifyListeners(e);
 }
 
 

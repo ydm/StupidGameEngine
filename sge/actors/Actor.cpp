@@ -11,20 +11,19 @@ SGE_NS_BEGIN;
 
 
 Actor::Actor()
-: components_()
+: HasID()
+, components_()
 {
 }
 
 
 Actor::~Actor()
 {
-    // for (auto& kv : components_)
-    for (std::map<std::string, ActorComponent *>::iterator it = components_.begin();
-         it != components_.end();
-         it++)
+    for (auto& kv : components_)
     {
-        delete it->second;
+        delete kv.second;
     }
+    components_.clear();
 }
 
 

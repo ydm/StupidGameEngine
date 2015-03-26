@@ -19,6 +19,9 @@
 // Logging
 // ========================
 SGE_NS_BEGIN;
+void logi(const char *fmt, ...);
+void logd(const char *fmt, ...);
+void logw(const char *fmt, ...);
 void loge(const char *fmt, ...);
 
 // ========================

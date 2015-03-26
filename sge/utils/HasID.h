@@ -48,7 +48,7 @@ class HasID : public THasID<uint32_t>
 public:
     static const ID ID_INVALID;
 
-    HasID(const ID ident);
+    HasID(const ID ident = ID_INVALID);
     virtual ~HasID();
 };
 
