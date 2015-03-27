@@ -24,21 +24,23 @@ class BaseLogic : public FiniteStateMachine
 public:
     BaseLogic(ActorManager *actorManager);
     virtual ~BaseLogic();
+    virtual void init(Application *app);
     virtual void update(const float dt);
     virtual void ready();
-    void setApplication(Application *app);
 
 protected:
     // Init stages
-    virtual void init();
     virtual void initStates() = 0;
     virtual void initActors() = 0;
 
     ActorManager *getActorManager() const;
     Application *getApplication() const;
-    void onTransition(const std::string& oldState, const std::string& newState) override;
+    virtual void handleCommand(const EventCommandType command);
+    virtual void onTransition(const std::string& oldState, const std::string& newState) override;
 
 private:
+    void handleCommand_(const Event *e);
+
     ActorManager                  *actorManager_;
     Application                   *app_;
     const ActorManager::ActorsMap *currentStateActors_;

@@ -21,14 +21,13 @@ class Application
 public:
     Application();
     virtual ~Application();
+    void init();
     void update(const float dt);
 
     void addView(BaseView *view);
     EventManager *getEventManager() const;
     BaseLogic *getLogic() const;
     void setLogic(BaseLogic *logic);
-
-    void ready();
 
 private:
     EventManager eventManager_;

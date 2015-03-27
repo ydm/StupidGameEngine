@@ -47,7 +47,6 @@ void Application::addView(BaseView *view)
 {
     if (view)
     {
-        view->init(this);
         views_.push_back(view);
     }
     else
@@ -83,7 +82,6 @@ void Application::setLogic(BaseLogic *logic)
     if (logic)
     {
         logic_ = logic;
-        logic_->setApplication(this);
     }
     else
     {
@@ -92,9 +90,15 @@ void Application::setLogic(BaseLogic *logic)
 }
 
 
-void Application::ready()
+void Application::init()
 {
-    logic_->ready();
+    // It's important to init views first as they may subscribe to events produced in Logic::init()
+    for (auto v : views_)
+    {
+        v->init(this);
+    }
+
+    logic_->init(this);
 }
 
 

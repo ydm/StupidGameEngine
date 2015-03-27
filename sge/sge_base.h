@@ -14,11 +14,19 @@
 #define SGE_NS_END }
 #define SGE_NS_USING using namespace sge
 
+SGE_NS_BEGIN;
+
+
+// ========================
+// Types
+// ========================
+typedef size_t EventCommandType;
+
 
 // ========================
 // Logging
 // ========================
-SGE_NS_BEGIN;
+
 void logi(const char *fmt, ...);
 void logd(const char *fmt, ...);
 void logw(const char *fmt, ...);

@@ -34,6 +34,15 @@ EventActorMove::~EventActorMove()                                               
 Vec3 EventActorMove::getPosition() const                                        { return pos_; }
 
 // ========================
+// EventCommand
+// ========================
+EventCommand::EventCommand(const EventCommandType cmd)
+: Event(EVENT_COMMAND)
+, cmd_(0)                                                                       { }
+EventCommand::~EventCommand()                                                   { }
+EventCommandType EventCommand::getCommand() const                               { return  cmd_; }
+
+// ========================
 // EventStateChange
 // ========================
 EventLogicStateChange::EventLogicStateChange(const std::string oldState, const std::string newState)

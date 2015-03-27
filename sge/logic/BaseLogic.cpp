@@ -53,16 +53,19 @@ void BaseLogic::ready()
 }
 
 
-void BaseLogic::setApplication(Application *app)
+void BaseLogic::init(Application *app)
 {
     if (app_)
     {
-        logw("BaseLogic::setApplication(): application is already set");
+        logw("BaseLogic::init(): you can call init() only once");
+        return;
     }
-    else
+    if (!app)
     {
-        app_ = app;
+        logw("BaseLogic::init(): null APP argument");
     }
+    app_ = app;
+    app_->getEventManager()->addListener(EVENT_COMMAND, SGE_EM_LISTENER(&BaseLogic::handleCommand_));
 }
 
 
@@ -84,10 +87,9 @@ BaseLogic::getActorManager() const
 }
 
 
-void BaseLogic::init()
+void BaseLogic::handleCommand(const EventCommandType command)
 {
-    initStates();
-    initActors();
+    logi("BaseLogic::handleCommand: %zu", command);
 }
 
 
@@ -99,6 +101,13 @@ void BaseLogic::onTransition(const std::string& oldState, const std::string& new
     // Now notify of the state change
     const EventLogicStateChange e(oldState, newState);
     getApplication()->getEventManager()->notifyListeners(&e);
+}
+
+
+void BaseLogic::handleCommand_(const Event *e)
+{
+    const EventCommand *c = static_cast<const EventCommand *>(e);
+    handleCommand(c->getCommand());
 }
 
 

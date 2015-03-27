@@ -20,6 +20,7 @@ SGE_NS_BEGIN;
 // >>> def gen(): print(hex(randint(0, 2**32 - 2)))
 static const Event::EventType EVENT_ACTOR_NEW           = 0x8bc09ac9;
 static const Event::EventType EVENT_ACTOR_MOVE          = 0x297b6e01;
+static const Event::EventType EVENT_COMMAND             = 0xfa244899;
 static const Event::EventType EVENT_LOGIC_STATE_CHANGE  = 0x3f18527d;
 
 
@@ -50,6 +51,20 @@ public:
     Vec3 getPosition() const;
 private:
     Vec3 pos_;
+};
+
+
+/**
+ * That's the primary mechanism to send commands to the base game logic.
+ */
+class EventCommand : public Event
+{
+public:
+    EventCommand(const EventCommandType cmd);
+    virtual ~EventCommand();
+    EventCommandType getCommand() const;
+private:
+    EventCommandType cmd_;
 };
 
 
