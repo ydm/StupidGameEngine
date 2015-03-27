@@ -25,17 +25,14 @@ BaseView::~BaseView()
 void BaseView::init(Application *app)
 {
     app_ = app;
-    auto f = std::bind(&BaseView::handleStateChange, this, std::placeholders::_1);
-    f(nullptr);
-    // app->getEventManager()->addListener(EVENT_STATE_CHANGE, f);
+    app->getEventManager()->addListener(EVENT_LOGIC_STATE_CHANGE, SGE_EM_LISTENER(&BaseView::handleStateChange));
 }
 
 
 void BaseView::handleStateChange(const Event *e)
 {
-    logi("e=%p", e);
-    // const EventStateChange *c = static_cast<const EventStateChange *>(e);
-    // logi("BaseView::handleStateChange old=%s, new=%s", c->getNewState().c_str(), c->getOldState().c_str());
+    const EventLogicStateChange *c = static_cast<const EventLogicStateChange *>(e);
+    logi("BaseView::handleStateChange old=%s, new=%s", c->getOldState().c_str(), c->getNewState().c_str());
 }
 
 

@@ -24,9 +24,9 @@ class BaseLogic : public FiniteStateMachine
 public:
     BaseLogic(ActorManager *actorManager);
     virtual ~BaseLogic();
-    void setApplication(Application *app);
     virtual void update(const float dt);
     virtual void ready();
+    void setApplication(Application *app);
 
 protected:
     // Init stages

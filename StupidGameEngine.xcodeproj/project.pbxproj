@@ -11,6 +11,8 @@
 		4853BAE21AC2ECB100025747 /* common_events.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = common_events.h; sourceTree = "<group>"; };
 		4853BAE71AC2FC7B00025747 /* ActorManager.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ActorManager.cpp; sourceTree = "<group>"; };
 		4853BAE81AC2FC7B00025747 /* ActorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActorManager.h; sourceTree = "<group>"; };
+		4853BAF91AC5624B00025747 /* ConfigMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigMap.cpp; sourceTree = "<group>"; };
+		4853BAFA1AC5624B00025747 /* ConfigMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigMap.h; sourceTree = "<group>"; };
 		487FFA3A1ABB98D9000F9A13 /* sge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sge.h; sourceTree = "<group>"; };
 		487FFA441ABB9987000F9A13 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		487FFA451ABB9987000F9A13 /* ActorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActorComponent.cpp; sourceTree = "<group>"; };
@@ -107,6 +109,8 @@
 				487FFA911ABD6480000F9A13 /* FiniteStateMachine.h */,
 				487FFA941ABEC0C3000F9A13 /* Utils.cpp */,
 				487FFA951ABEC0C3000F9A13 /* Utils.h */,
+				4853BAF91AC5624B00025747 /* ConfigMap.cpp */,
+				4853BAFA1AC5624B00025747 /* ConfigMap.h */,
 			);
 			path = utils;
 			sourceTree = "<group>";

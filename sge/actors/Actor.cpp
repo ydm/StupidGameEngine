@@ -36,7 +36,7 @@ void Actor::addComponent(const std::string &name, sge::ActorComponent *component
     }
     else
     {
-        loge("Actor::addComponent: unable to add null component");
+        loge("Actor::addComponent: null component");
     }
 }
 
@@ -46,7 +46,7 @@ Actor::getComponent(const std::string& name) const
 {
     try {
         return components_.at(name);
-    } catch (std::out_of_range _) {
+    } catch (std::out_of_range) {
         loge("Actor::getComponent: unknown component %s", name.c_str());
     }
     return nullptr;

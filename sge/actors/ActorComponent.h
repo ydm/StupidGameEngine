@@ -10,7 +10,6 @@
 SGE_NS_BEGIN;
 
 class Actor;
-class ActorFactory;
 
 class ActorComponent
 {

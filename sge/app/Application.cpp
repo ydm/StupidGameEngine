@@ -83,6 +83,7 @@ void Application::setLogic(BaseLogic *logic)
     if (logic)
     {
         logic_ = logic;
+        logic_->setApplication(this);
     }
     else
     {

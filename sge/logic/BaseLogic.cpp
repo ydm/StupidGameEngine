@@ -14,6 +14,7 @@ SGE_NS_BEGIN;
 
 BaseLogic::BaseLogic(ActorManager *actorManager)
 : actorManager_(actorManager)
+, app_(nullptr)
 , currentStateActors_(nullptr)
 {
     if (!actorManager)
@@ -30,11 +31,6 @@ BaseLogic::~BaseLogic()
 }
 
 
-void BaseLogic::ready()
-{
-}
-
-
 void BaseLogic::update(const float dt)
 {
     for (auto& p : *actorManager_->getGlobalActors())
@@ -48,6 +44,24 @@ void BaseLogic::update(const float dt)
         {
             p.second->update(dt);
         }
+    }
+}
+
+
+void BaseLogic::ready()
+{
+}
+
+
+void BaseLogic::setApplication(Application *app)
+{
+    if (app_)
+    {
+        logw("BaseLogic::setApplication(): application is already set");
+    }
+    else
+    {
+        app_ = app;
     }
 }
 
@@ -83,7 +97,7 @@ void BaseLogic::onTransition(const std::string& oldState, const std::string& new
     currentStateActors_ = actorManager_->getActorsForState(newState);
 
     // Now notify of the state change
-    const EventStateChange e(oldState, newState);
+    const EventLogicStateChange e(oldState, newState);
     getApplication()->getEventManager()->notifyListeners(&e);
 }
 

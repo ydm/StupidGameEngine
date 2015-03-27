@@ -18,15 +18,17 @@ static const std::string& thisThreadsName()
 
     std::ostrstream s;
     s << std::this_thread::get_id();
-    const std::string name(s.str());
+    const std::string name(s.str(), s.pcount()); // str() not null terminaterd, set explicit size
+    s.freeze(false); // prevent leak http://goo.gl/Gv4RxB
 
-    try {
-        names.at(name);
-    } catch (std::out_of_range) {
+    if(!names.count(name)) // no exceptions for flow control :)
+    {
         std::ostrstream t;
         t << nextThread;
-        names[name] = std::string(t.str());
+        names[name] = std::string(t.str(), t.pcount()); // str() not null terminaterd, set explicit size
+        t.freeze(false); // prevent leak
     }
+
     return names[name];
 }
 
@@ -34,24 +36,21 @@ static const std::string& thisThreadsName()
 // ========================
 // Logging
 // ========================
-static void log(const char *prefix, const char *fmt, ...)
+// Use correct parameters http://goo.gl/Cxl40S
+static void log(const char *prefix, const char *fmt, va_list& args)
 {
     static std::mutex g_logMutex;
 
-    // ydm: It's stupid, but I can't think of another reliable way to print this thread's ID
     std::ostrstream p;
     p << "[" << prefix << "/" << thisThreadsName() << "] ";
 
-    va_list args;
-    va_start(args, fmt);
-
     g_logMutex.lock();
-    fprintf(stderr, "%s", p.str());
-    fprintf(stderr, fmt, args);
+    fprintf(stderr, "%s", std::string(p.str(),p.pcount()).c_str()); // str() not null terminaterd, set explicit size
+    vfprintf (stderr, fmt, args); // use correct function
     fprintf(stderr, "\n");
     g_logMutex.unlock();
-
-    va_end(args);
+    
+    p.freeze(false); // prevent leak
 }
 
 

@@ -10,6 +10,7 @@
 #define __SGE_ACTOR_MANAGER_H__
 
 #include <map>
+#include <string>
 #include "Actor.h"
 SGE_NS_BEGIN;
 

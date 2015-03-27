@@ -104,4 +104,4 @@ public:
 };
 
 SGE_NS_END;
-#endif // SGE_UTILS_H
+#endif // __SGE_UTILS_H__

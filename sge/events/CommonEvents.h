@@ -12,16 +12,15 @@
 #include "../actors/Actor.h"
 #include "../sge_base.h"
 #include "Event.h"
-
-
 SGE_NS_BEGIN;
+
 
 // 2**32 - 1 is the same as -1, and that's INVALID_ID :)
 // >>> from random import randint
 // >>> def gen(): print(hex(randint(0, 2**32 - 2)))
-static const Event::EventType EVENT_ACTOR_NEW    = 0x8bc09ac9;
-static const Event::EventType EVENT_ACTOR_MOVE   = 0x297b6e01;
-static const Event::EventType EVENT_STATE_CHANGE = 0x3f18527d;
+static const Event::EventType EVENT_ACTOR_NEW           = 0x8bc09ac9;
+static const Event::EventType EVENT_ACTOR_MOVE          = 0x297b6e01;
+static const Event::EventType EVENT_LOGIC_STATE_CHANGE  = 0x3f18527d;
 
 
 class EventActor : public Event
@@ -54,11 +53,11 @@ private:
 };
 
 
-class EventStateChange : public Event
+class EventLogicStateChange : public Event
 {
 public:
-    EventStateChange(const std::string oldState, const std::string newState);
-    virtual ~EventStateChange();
+    EventLogicStateChange(const std::string oldState, const std::string newState);
+    virtual ~EventLogicStateChange();
 
     const std::string& getOldState() const;
     const std::string& getNewState() const;

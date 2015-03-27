@@ -9,9 +9,14 @@
 #ifndef __SGE_EVENT_MANAGER_H__
 #define __SGE_EVENT_MANAGER_H__
 
+#include <list>
+#include <map>
 #include <functional>
 #include "Event.h"
 SGE_NS_BEGIN;
+
+
+#define SGE_EM_LISTENER(fn) std::bind(fn, this, std::placeholders::_1)
 
 
 class EventManager

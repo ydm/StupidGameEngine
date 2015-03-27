@@ -15,7 +15,6 @@ EventManager::EventManager()
 : globalListeners_()
 , listenersForType_()
 {
-    logi("CONSTRUCTOR: %lu, %lu", globalListeners_.size(), listenersForType_.size());
 }
 
 

@@ -87,7 +87,6 @@ ActorManager::getActorsForState(const std::string& state) const
     } catch (std::out_of_range) {
         return nullptr;
     }
-
 }
 
 
