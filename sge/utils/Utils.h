@@ -13,6 +13,8 @@
 #include <list>
 #include <map>
 #include <set>
+#include <sstream>
+#include <vector>
 #include "../sge_base.h"
 SGE_NS_BEGIN;
 
@@ -36,7 +38,6 @@ public:
     template<typename K, typename V>
     static bool mapContainsValue(const std::map<K, V>& m, const V& val)
     {
-        // for (auto& kv : m)
         for (typename std::map<K, V>::const_iterator it = m.begin(); it != m.end(); it++)
         {
             if (it->second == val)
@@ -45,6 +46,19 @@ public:
             }
         }
         return false;
+    }
+
+    template<typename K, typename V>
+    static std::string mapPrettyString(const std::map<K, V>& m)
+    {
+        std::ostringstream s;
+        s << "{ ";
+        for (typename std::map<K, V>::const_iterator it = m.begin(); it != m.end(); it++)
+        {
+            s << it->first << ": " << it->second << ", ";
+        }
+        s << "}";
+        return s.str();
     }
 
     /*
@@ -100,6 +114,31 @@ public:
     {
         typename std::set<T>::const_iterator it = s.find(element);
         return it != s.end();
+    }
+
+    // -----------------+
+    // Generic sequence |
+    // -----------------+
+    template<typename T>
+    static std::string sequencePrettyString(const T& t)
+    {
+        bool first = true;
+        std::ostringstream s;
+        s << '[';
+        for (auto e : t)
+        {
+            if (!first)
+            {
+                s << ", ";
+            }
+            else
+            {
+                first = false;
+            }
+            s << e;
+        }
+        s << ']';
+        return s.str();
     }
 };
 

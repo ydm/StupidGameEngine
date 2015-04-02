@@ -9,7 +9,7 @@
 #ifndef __SGE_EVENT_H__
 #define __SGE_EVENT_H__
 
-#include <strstream>
+#include <sstream>
 #include "../utils/HasID.h"
 SGE_NS_BEGIN;
 
@@ -20,12 +20,11 @@ public:
     typedef ID EventType;
 
     Event(const EventType ident);
-    Event(std::istrstream& is);
     virtual ~Event();
 
-    virtual EventType getEventType() const;
-    virtual void serialize(std::ostrstream& os) const;
-    virtual void deserialize(std::istrstream& is);
+    EventType getEventType() const;
+    virtual void serialize(std::ostringstream& os) const;
+    virtual void deserialize(std::istringstream& is);
 
 protected:
     // static const char DELIMITER;

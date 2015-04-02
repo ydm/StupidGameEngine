@@ -52,26 +52,33 @@ bool FiniteStateMachine::isKnownState(const std::string& state)
 }
 
 
-void FiniteStateMachine::transitionTo(const std::string& nextState)
+void FiniteStateMachine::transitionTo(const std::string& nextState, const Bundle *parameters)
 {
-    // map::at() throws runtime exception in case of bad key
-    std::set<std::string> *valid = table_.at(state_);
-    if (!Utils::setContains(*valid, nextState))
+    std::set<std::string> *valid(nullptr);
+    try
     {
-        std::ostringstream message;
-        message << "FiniteStateMachine::transitionTo: unknown next state '" << nextState << "'";
-        throw std::runtime_error(message.str());
+        valid = table_.at(state_);
     }
-    else
+    catch (std::out_of_range)
+    {
+        logw("FiniteStateMachine::transitionTo: No rules for state '%s'.  Rules table: %s", state_.c_str(), Utils::mapPrettyString(table_).c_str());
+        return;
+    }
+
+    if (Utils::setContains(*valid, nextState))
     {
         const std::string old(state_);
         state_ = nextState;
-        onTransition(old, state_);
+        onTransition(old, state_, parameters);
+    }
+    else
+    {
+        loge("FiniteStateMachine::transitionTo: unknown next state '%s', current = '%s'", nextState.c_str(), state_.c_str());
     }
 }
 
 
-void FiniteStateMachine::onTransition(const std::string& oldState, const std::string& newState)
+void FiniteStateMachine::onTransition(const std::string& oldState, const std::string& newState, const Bundle *parameters)
 {
     // NOOP
 }

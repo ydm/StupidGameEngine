@@ -13,6 +13,15 @@
 		4853BAE81AC2FC7B00025747 /* ActorManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ActorManager.h; sourceTree = "<group>"; };
 		4853BAF91AC5624B00025747 /* ConfigMap.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = ConfigMap.cpp; sourceTree = "<group>"; };
 		4853BAFA1AC5624B00025747 /* ConfigMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ConfigMap.h; sourceTree = "<group>"; };
+		4853BB0E1AC6A58800025747 /* base.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = base.h; sourceTree = "<group>"; };
+		4853BB111AC6A60200025747 /* CCBaseView.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CCBaseView.cpp; sourceTree = "<group>"; };
+		4853BB121AC6A60200025747 /* CCBaseView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBaseView.h; sourceTree = "<group>"; };
+		4853BB131AC6A60200025747 /* CCRenderComponent.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CCRenderComponent.cpp; sourceTree = "<group>"; };
+		4853BB141AC6A60200025747 /* CCRenderComponent.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCRenderComponent.h; sourceTree = "<group>"; };
+		4853BB201AC6A93700025747 /* cc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cc.h; sourceTree = "<group>"; };
+		4853BB231AC6FEE100025747 /* sge_cc.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sge_cc.h; sourceTree = "<group>"; };
+		4853BB2B1AC7055A00025747 /* CCBaseLayer.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = CCBaseLayer.cpp; sourceTree = "<group>"; };
+		4853BB2C1AC7055A00025747 /* CCBaseLayer.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CCBaseLayer.h; sourceTree = "<group>"; };
 		487FFA3A1ABB98D9000F9A13 /* sge.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = sge.h; sourceTree = "<group>"; };
 		487FFA441ABB9987000F9A13 /* Actor.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Actor.h; sourceTree = "<group>"; };
 		487FFA451ABB9987000F9A13 /* ActorComponent.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = ActorComponent.cpp; sourceTree = "<group>"; };
@@ -38,9 +47,34 @@
 		487FFAFC1AC1D2D7000F9A13 /* EventManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EventManager.h; sourceTree = "<group>"; };
 		487FFB011AC1DDCD000F9A13 /* Event.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Event.cpp; sourceTree = "<group>"; };
 		487FFB021AC1DDCD000F9A13 /* Event.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Event.h; sourceTree = "<group>"; };
+		48F63DC61ACDBD3300F104D9 /* Bundle.cpp */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.cpp.cpp; path = Bundle.cpp; sourceTree = "<group>"; };
+		48F63DC71ACDBD3300F104D9 /* Bundle.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Bundle.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXGroup section */
+		4853BB0C1AC6A41400025747 /* ext */ = {
+			isa = PBXGroup;
+			children = (
+				4853BB0D1AC6A41400025747 /* cocos */,
+			);
+			path = ext;
+			sourceTree = "<group>";
+		};
+		4853BB0D1AC6A41400025747 /* cocos */ = {
+			isa = PBXGroup;
+			children = (
+				4853BB2B1AC7055A00025747 /* CCBaseLayer.cpp */,
+				4853BB2C1AC7055A00025747 /* CCBaseLayer.h */,
+				4853BB0E1AC6A58800025747 /* base.h */,
+				4853BB111AC6A60200025747 /* CCBaseView.cpp */,
+				4853BB121AC6A60200025747 /* CCBaseView.h */,
+				4853BB131AC6A60200025747 /* CCRenderComponent.cpp */,
+				4853BB141AC6A60200025747 /* CCRenderComponent.h */,
+				4853BB201AC6A93700025747 /* cc.h */,
+			);
+			path = cocos;
+			sourceTree = "<group>";
+		};
 		487FFA2C1ABB9819000F9A13 = {
 			isa = PBXGroup;
 			children = (
@@ -59,6 +93,7 @@
 		487FFA391ABB98D9000F9A13 /* sge */ = {
 			isa = PBXGroup;
 			children = (
+				4853BB0C1AC6A41400025747 /* ext */,
 				487FFA431ABB9987000F9A13 /* actors */,
 				487FFA8B1ABD5C7B000F9A13 /* app */,
 				487FFA4C1ABB9987000F9A13 /* events */,
@@ -68,6 +103,7 @@
 				487FFA3A1ABB98D9000F9A13 /* sge.h */,
 				487FFA4E1ABB9987000F9A13 /* sge_base.h */,
 				487FFA4D1ABB9987000F9A13 /* sge_base.cpp */,
+				4853BB231AC6FEE100025747 /* sge_cc.h */,
 			);
 			path = sge;
 			sourceTree = "<group>";
@@ -111,6 +147,8 @@
 				487FFA951ABEC0C3000F9A13 /* Utils.h */,
 				4853BAF91AC5624B00025747 /* ConfigMap.cpp */,
 				4853BAFA1AC5624B00025747 /* ConfigMap.h */,
+				48F63DC61ACDBD3300F104D9 /* Bundle.cpp */,
+				48F63DC71ACDBD3300F104D9 /* Bundle.h */,
 			);
 			path = utils;
 			sourceTree = "<group>";

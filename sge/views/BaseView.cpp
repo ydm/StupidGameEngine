@@ -23,6 +23,11 @@ BaseView::~BaseView()
 }
 
 
+void BaseView::update(const float dt)
+{
+}
+
+
 void BaseView::init(Application *app)
 {
     app_ = app;
@@ -39,7 +44,23 @@ void BaseView::handleStateChange(const std::string& oldState, const std::string&
 void BaseView::handleStateChange_(const Event *e)
 {
     const EventLogicStateChange *c = static_cast<const EventLogicStateChange *>(e);
-    handleStateChange(c->getOldState(), c->getNewState());
+    auto data = c->getData();
+    handleStateChange(data[0], data[1]);
+}
+
+
+void BaseView::sendCommand(const EventUserCommandType command)
+{
+    const EventUserCommand e(command);
+    app_->getEventManager()->notifyListeners(&e);
+}
+
+
+void BaseView::sendCommand(const EventUserCommandType command, std::initializer_list<int> params)
+{
+    const EventUserCommandInt e(command, params);
+    // FIXME ydm app_ is NULL
+    app_->getEventManager()->notifyListeners(&e);
 }
 
 

@@ -16,20 +16,18 @@ static const std::string& thisThreadsName()
     static std::map<std::string, std::string> names;
     static int nextThread = 1;
 
-    std::ostrstream s;
-    s << std::this_thread::get_id();
-    const std::string name(s.str(), s.pcount()); // str() not null terminaterd, set explicit size
-    s.freeze(false); // prevent leak http://goo.gl/Gv4RxB
+    std::ostringstream idStream;
+    idStream << std::this_thread::get_id();
+    const std::string idString(idStream.str());
 
-    if(!names.count(name)) // no exceptions for flow control :)
+    if(names.count(idString) == 0)
     {
-        std::ostrstream t;
-        t << nextThread;
-        names[name] = std::string(t.str(), t.pcount()); // str() not null terminaterd, set explicit size
-        t.freeze(false); // prevent leak
+        std::ostringstream nameStream;
+        nameStream << nextThread++;
+        names[idString] = nameStream.str();
     }
 
-    return names[name];
+    return names[idString];
 }
 
 
@@ -39,18 +37,16 @@ static const std::string& thisThreadsName()
 // Use correct parameters http://goo.gl/Cxl40S
 static void log(const char *prefix, const char *fmt, va_list& args)
 {
-    static std::mutex g_logMutex;
+    static std::mutex m;
 
-    std::ostrstream p;
+    std::ostringstream p;
     p << "[" << prefix << "/" << thisThreadsName() << "] ";
 
-    g_logMutex.lock();
-    fprintf(stderr, "%s", std::string(p.str(),p.pcount()).c_str()); // str() not null terminaterd, set explicit size
-    vfprintf (stderr, fmt, args); // use correct function
+    m.lock();
+    fprintf(stderr, "%s", p.str().c_str());
+    vfprintf (stderr, fmt, args);
     fprintf(stderr, "\n");
-    g_logMutex.unlock();
-    
-    p.freeze(false); // prevent leak
+    m.unlock();
 }
 
 

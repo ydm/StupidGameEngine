@@ -12,7 +12,6 @@
 // ========================
 #define SGE_NS_BEGIN namespace sge {
 #define SGE_NS_END }
-#define SGE_NS_USING using namespace sge
 
 SGE_NS_BEGIN;
 
@@ -20,7 +19,7 @@ SGE_NS_BEGIN;
 // ========================
 // Types
 // ========================
-typedef size_t EventCommandType;
+typedef size_t EventUserCommandType;
 
 
 // ========================

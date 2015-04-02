@@ -24,7 +24,7 @@ public:
     void init();
     void update(const float dt);
 
-    void addView(BaseView *view);
+    void addLocalView(BaseView *view);
     EventManager *getEventManager() const;
     BaseLogic *getLogic() const;
     void setLogic(BaseLogic *logic);
@@ -32,8 +32,7 @@ public:
 private:
     EventManager eventManager_;
     BaseLogic *logic_;
-    bool started_;
-    std::list<BaseView *> views_;
+    std::list<BaseView *> localViews_;
 };
 
 

@@ -13,8 +13,7 @@ SGE_NS_BEGIN;
 Application::Application()
 : eventManager_()
 , logic_(nullptr)
-, started_(false)
-, views_()
+, localViews_()
 {
 }
 
@@ -22,32 +21,29 @@ Application::Application()
 Application::~Application()
 {
     delete logic_;
-    for (auto v : views_)
+    for (auto v : localViews_)
     {
         delete v;
     }
-    views_.clear();
+    localViews_.clear();
 }
 
 
 void Application::update(const float dt)
 {
-    return;
-    static bool printed = false;
-    if (!printed)
+    logic_->update(dt);
+    for (auto v : localViews_)
     {
-        printed = true;
-        logi("App::update(%f)", dt);
+        v->update(dt);
     }
-    // logic_->update(dt);
 }
 
 
-void Application::addView(BaseView *view)
+void Application::addLocalView(BaseView *view)
 {
     if (view)
     {
-        views_.push_back(view);
+        localViews_.push_back(view);
     }
     else
     {
@@ -92,12 +88,12 @@ void Application::setLogic(BaseLogic *logic)
 
 void Application::init()
 {
-    // It's important to init views first as they may subscribe to events produced in Logic::init()
-    for (auto v : views_)
+    // It's important to init views first as they depend on logic and not the other way around.
+    // For example they may subscribe to state change events, produced in Logic::init()
+    for (auto v : localViews_)
     {
         v->init(this);
     }
-
     logic_->init(this);
 }
 

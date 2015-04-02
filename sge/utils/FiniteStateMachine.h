@@ -12,7 +12,7 @@
 #include <set>
 #include <map>
 #include <string>
-#include "../sge_base.h"
+#include "Bundle.h"
 SGE_NS_BEGIN;
 
 
@@ -25,10 +25,10 @@ public:
     void addTransitionRule(const std::string& state, const std::string& next);
     const std::string& getCurrentState() const;
     bool isKnownState(const std::string& state);
-    void transitionTo(const std::string& nextState);
+    void transitionTo(const std::string& nextState, const Bundle *parameters = nullptr);
 
 protected:
-    virtual void onTransition(const std::string& oldState, const std::string& newState);
+    virtual void onTransition(const std::string& oldState, const std::string& newState, const Bundle *parameters);
 
 private:
     std::string state_;

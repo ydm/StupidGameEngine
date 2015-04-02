@@ -32,12 +32,19 @@
 // actors/TransformComponent
 // - actors/ActorComponent
 //
+// utils/Bundle
+//
 // utils/Utils
 
 #include "app/Application.h"
 #include "events/CommonEvents.h"
 #include "actors/TransformComponent.h"
+#include "utils/Bundle.h"
 #include "utils/Utils.h"
+
+#ifdef SGE_USE_CC
+#include "ext/cocos/cc.h"
+#endif // SGE_USE_CC
 
 #pragma GCC visibility pop
 #endif // __SGE_H__

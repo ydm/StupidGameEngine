@@ -13,7 +13,7 @@ SGE_NS_BEGIN;
 // const char Event::DELIMITER(':');
 
 
-Event::Event(const ID ident)
+Event::Event(const EventType ident)
 : THasID(ident)
 {
 }
@@ -30,13 +30,13 @@ Event::EventType Event::getEventType() const
 }
 
 
-void Event::serialize(std::ostrstream& os) const
+void Event::serialize(std::ostringstream& os) const
 {
     // TODO
 }
 
 
-void Event::deserialize(std::istrstream& is)
+void Event::deserialize(std::istringstream& is)
 {
     // TODO
 }

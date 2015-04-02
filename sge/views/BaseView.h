@@ -9,6 +9,7 @@
 #ifndef __SGE_BASE_VIEW_H__
 #define __SGE_BASE_VIEW_H__
 
+#include <initializer_list>
 #include "../events/Event.h"
 SGE_NS_BEGIN;
 
@@ -22,12 +23,17 @@ public:
     BaseView();
     virtual ~BaseView();
     virtual void init(Application *app);
+    virtual void update(const float dt);
+
     virtual void handleStateChange(const std::string& oldState, const std::string& newState);
+    void sendCommand(const EventUserCommandType command);
+    void sendCommand(const EventUserCommandType command, std::initializer_list<int> params);
+
+protected:
+    Application *app_;
 
 private:
     void handleStateChange_(const Event *e);
-
-    Application *app_;
 };
 
 

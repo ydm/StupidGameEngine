@@ -9,7 +9,49 @@
 #include "CommonEvents.h"
 SGE_NS_BEGIN;
 
+// ========================
+// EventUserCommand
+// ========================
+EventUserCommand::EventUserCommand(const EventUserCommandType cmd)
+: EventWithData(EVENT_USER_COMMAND, cmd)
+{
+}
 
+EventUserCommand::~EventUserCommand()
+{
+}
+
+
+// ========================
+// EventUserCommandInt
+// ========================
+EventUserCommandInt::EventUserCommandInt(const EventUserCommandType& data, const std::initializer_list<int> params)
+: EventWithParameters(EVENT_USER_COMMAND_INT, data, params)
+{
+}
+
+EventUserCommandInt::~EventUserCommandInt()
+{
+}
+
+
+// ========================
+// EventLogicStateChange
+// ========================
+EventLogicStateChange::EventLogicStateChange(const std::string& oldState, const std::string& newState)
+: EventWithData(EVENT_LOGIC_STATE_CHANGE)
+{
+    data_.push_back(oldState);
+    data_.push_back(newState);
+}
+
+EventLogicStateChange::~EventLogicStateChange()
+{
+    data_.clear();
+}
+
+
+/*
 // ========================
 // EventActor
 // ========================
@@ -38,7 +80,7 @@ Vec3 EventActorMove::getPosition() const                                        
 // ========================
 EventCommand::EventCommand(const EventCommandType cmd)
 : Event(EVENT_COMMAND)
-, cmd_(0)                                                                       { }
+, cmd_(cmd)                                                                     { }
 EventCommand::~EventCommand()                                                   { }
 EventCommandType EventCommand::getCommand() const                               { return  cmd_; }
 
@@ -52,6 +94,7 @@ EventLogicStateChange::EventLogicStateChange(const std::string oldState, const s
 EventLogicStateChange::~EventLogicStateChange()                                 { }
 const std::string& EventLogicStateChange::getOldState() const                   { return oldState_; }
 const std::string& EventLogicStateChange::getNewState() const                   { return newState_; }
+*/
 
 
 SGE_NS_END;
