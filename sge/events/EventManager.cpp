@@ -46,7 +46,6 @@ void EventManager::removeListener(const Event::EventType type, EventListener lis
     for (EventListenerList::iterator it = listeners->begin();
          it != listeners->end();
          it++)
-
     {
         EventListener e(*it);
         void (*const *target) (const Event *) = e.target<void (*) (const Event *)>();
