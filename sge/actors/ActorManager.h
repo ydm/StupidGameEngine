@@ -24,8 +24,8 @@ public:
     ActorManager();
     virtual ~ActorManager();
 
-    Actor *createGlobalActor();
-    Actor *createActorForState(const std::string& state);
+    Actor *createGlobalActor(const Actor::ActorType actorType);
+    Actor *createActorForState(const std::string& state, const Actor::ActorType actorType);
 
     Actor *getGlobalActor(const Actor::ID ident) const;
     Actor *getActorForState(const std::string& state, const Actor::ID ident) const;
@@ -34,7 +34,7 @@ public:
     const ActorsMap *getActorsForState(const std::string& state) const;
 
 protected:
-    virtual Actor *createActor_();
+    virtual Actor *createActor_(const Actor::ActorType actorType);
 
 private:
     ActorsMap *getOrCreateActorsForState(const std::string& state);

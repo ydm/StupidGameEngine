@@ -16,14 +16,19 @@ SGE_NS_BEGIN;
 class Actor : public HasID
 {
 public:
-    Actor();
+    typedef size_t ActorType;
+
+    Actor(const ActorType actorType);
     virtual ~Actor();  // Deletes components
-    void addComponent(const std::string& name, ActorComponent *component);
-    ActorComponent *getComponent(const std::string& name) const;
     void update(const float dt);
+
+    void addComponent(const std::string& name, ActorComponent *component);
+    const ActorType getActorType() const;
+    ActorComponent *getComponent(const std::string& name) const;
 
 private:
     std::map<std::string, ActorComponent *> components_;
+    const ActorType actorType_;
 };
 
 

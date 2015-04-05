@@ -11,6 +11,7 @@
 
 #include "base.h"
 #include "CCBaseView.h"
+// #include "../../app/Application.h"
 SGE_CC_NS_BEGIN;
 
 

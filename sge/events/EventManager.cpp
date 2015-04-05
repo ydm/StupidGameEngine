@@ -14,6 +14,7 @@ SGE_NS_BEGIN;
 EventManager::EventManager()
 : globalListeners_()
 , listenersForType_()
+, nextID_(0)
 {
 }
 
@@ -33,6 +34,30 @@ EventManager::~EventManager()
 void EventManager::addListener(const Event::EventType type, EventListener listener)
 {
     getListenersForType(type)->push_back(listener);
+    logi("EventManager::addListener: added event listener for type %zu", type);
+}
+
+
+void EventManager::removeListener(const Event::EventType type, EventListener listener)
+{
+    void (*const *remove) (const Event *) = listener.target<void (*) (const Event *)>();
+
+    EventListenerList *listeners = getListenersForType(type);
+    for (EventListenerList::iterator it = listeners->begin();
+         it != listeners->end();
+         it++)
+
+    {
+        EventListener e(*it);
+        void (*const *target) (const Event *) = e.target<void (*) (const Event *)>();
+
+        if (*target == *remove)
+        {
+            listeners->erase(it);
+            logi("EventManager::removeListener: removed event listener for type %zu", type);
+            break;
+        }
+    }
 }
 
 

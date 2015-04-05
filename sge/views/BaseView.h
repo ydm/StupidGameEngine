@@ -25,15 +25,15 @@ public:
     virtual void init(Application *app);
     virtual void update(const float dt);
 
+    Application *getApplication();
+
     virtual void handleStateChange(const std::string& oldState, const std::string& newState);
     void sendCommand(const EventUserCommandType command);
     void sendCommand(const EventUserCommandType command, std::initializer_list<int> params);
 
-protected:
-    Application *app_;
-
 private:
     void handleStateChange_(const Event *e);
+    Application *app_;
 };
 
 

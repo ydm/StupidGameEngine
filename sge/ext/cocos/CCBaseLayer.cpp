@@ -21,4 +21,17 @@ CCBaseLayer::CCBaseLayer()
 }
 
 
+//sge::Application *
+//CCBaseLayer::getApplication()
+//{
+//    return view_->getApplication();
+//}
+//
+//
+//sge::EventManager *
+//CCBaseLayer::getEventManager()
+//{
+//    return view_->getApplication()->getEventManager();
+//}
+
 SGE_CC_NS_END;

@@ -23,15 +23,22 @@ BaseView::~BaseView()
 }
 
 
+void BaseView::init(Application *app)
+{
+    app_ = app;
+    app->getEventManager()->addListener(EVENT_LOGIC_STATE_CHANGE, SGE_EM_LISTENER(&BaseView::handleStateChange_));
+}
+
+
 void BaseView::update(const float dt)
 {
 }
 
 
-void BaseView::init(Application *app)
+Application *
+BaseView::getApplication()
 {
-    app_ = app;
-    app->getEventManager()->addListener(EVENT_LOGIC_STATE_CHANGE, SGE_EM_LISTENER(&BaseView::handleStateChange_));
+    return app_;
 }
 
 

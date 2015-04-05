@@ -9,6 +9,36 @@
 #include "CommonEvents.h"
 SGE_NS_BEGIN;
 
+
+// ========================
+// EventActorNew
+// ========================
+EventActorNew::EventActorNew(sge::Actor *actor)
+: EventWithData<Actor *>(EVENT_ACTOR_NEW, actor)
+{
+}
+
+EventActorNew::~EventActorNew()
+{
+}
+
+
+// ========================
+// EventLogicStateChange
+// ========================
+EventLogicStateChange::EventLogicStateChange(const std::string& oldState, const std::string& newState)
+: EventWithData(EVENT_LOGIC_STATE_CHANGE)
+{
+    data_.push_back(oldState);
+    data_.push_back(newState);
+}
+
+EventLogicStateChange::~EventLogicStateChange()
+{
+    data_.clear();
+}
+
+
 // ========================
 // EventUserCommand
 // ========================
@@ -33,23 +63,6 @@ EventUserCommandInt::EventUserCommandInt(const EventUserCommandType& data, const
 EventUserCommandInt::~EventUserCommandInt()
 {
 }
-
-
-// ========================
-// EventLogicStateChange
-// ========================
-EventLogicStateChange::EventLogicStateChange(const std::string& oldState, const std::string& newState)
-: EventWithData(EVENT_LOGIC_STATE_CHANGE)
-{
-    data_.push_back(oldState);
-    data_.push_back(newState);
-}
-
-EventLogicStateChange::~EventLogicStateChange()
-{
-    data_.clear();
-}
-
 
 /*
 // ========================

@@ -40,19 +40,19 @@ ActorManager::~ActorManager()
 
 
 Actor *
-ActorManager::createGlobalActor()
+ActorManager::createGlobalActor(Actor::ActorType actorType)
 {
-    Actor *a = createActor_();
+    Actor *a = createActor_(actorType);
     globalActors_[a->getID()] = a;
     return a;
 }
 
 
 Actor *
-ActorManager::createActorForState(const std::string& state)
+ActorManager::createActorForState(const std::string& state, Actor::ActorType actorType)
 {
     ActorsMap *m = getOrCreateActorsForState(state);
-    Actor *a = createActor_();
+    Actor *a = createActor_(actorType);
     (*m)[a->getID()] = a;
     return a;
 }
@@ -95,9 +95,9 @@ ActorManager::getActorsForState(const std::string& state) const
 // ========================
 
 Actor *
-ActorManager::createActor_()
+ActorManager::createActor_(const Actor::ActorType actorType)
 {
-    Actor *a = new Actor();
+    Actor *a = new Actor(actorType);
     a->setID(nextID_++);
     return a;
 }

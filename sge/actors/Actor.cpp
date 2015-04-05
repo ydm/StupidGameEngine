@@ -10,8 +10,9 @@
 SGE_NS_BEGIN;
 
 
-Actor::Actor()
+Actor::Actor(const ActorType actorType)
 : HasID()
+, actorType_(actorType)
 , components_()
 {
 }
@@ -24,6 +25,15 @@ Actor::~Actor()
         delete kv.second;
     }
     components_.clear();
+}
+
+
+void Actor::update(const float dt)
+{
+    for (auto kv : components_)
+    {
+        kv.second->update(dt);
+    }
 }
 
 
@@ -41,6 +51,13 @@ void Actor::addComponent(const std::string &name, sge::ActorComponent *component
 }
 
 
+const Actor::ActorType
+Actor::getActorType() const
+{
+    return actorType_;
+}
+
+
 ActorComponent *
 Actor::getComponent(const std::string& name) const
 {
@@ -52,13 +69,5 @@ Actor::getComponent(const std::string& name) const
     return nullptr;
 }
 
-
-void Actor::update(const float dt)
-{
-    for (auto kv : components_)
-    {
-        kv.second->update(dt);
-    }
-}
 
 SGE_NS_END;
