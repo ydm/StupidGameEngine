@@ -38,11 +38,6 @@ void EventManager::addListener(const Event::EventType type, EventListener listen
 }
 
 
-static void hehe(const Event *)
-{
-}
-
-
 void EventManager::removeListener(const Event::EventType type, EventListener listener)
 {
     // ydm: Bind expressions yield NULL when asked for target().  Thus if
