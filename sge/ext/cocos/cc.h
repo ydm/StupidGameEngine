@@ -9,7 +9,7 @@
 #ifndef __SGE_CC_H__
 #define __SGE_CC_H__
 
-// #include "CCBaseView.h"
+#include "CCBaseView.h"
 #include "CCBaseLayer.h" // Includes CCBaseView.h
 #include "CCRenderComponent.h"
 

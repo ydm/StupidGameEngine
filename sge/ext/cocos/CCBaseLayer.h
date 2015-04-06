@@ -10,9 +10,10 @@
 #define __SGE_CC_BASE_LAYER_H__
 
 #include "base.h"
-#include "CCBaseView.h"
-// #include "../../app/Application.h"
 SGE_CC_NS_BEGIN;
+
+
+class CCBaseView;
 
 
 #define SGE_CC_LAYER_CREATE(Type)                                               \
@@ -47,6 +48,7 @@ class CCBaseLayer : public cocos2d::Layer
 public:
     CCBaseLayer();
     virtual ~CCBaseLayer();
+    // virtual void sgeUpdate(const float dt);
 
 protected:
     CCBaseView *view_;

@@ -27,13 +27,14 @@ public:
     virtual ~BaseLogic();
     virtual void init(Application *app);
     virtual void update(const float dt);
+
+    ActorManager *getActorManager() const;
     void setActorManager(ActorManager *actorManager);
 
 protected:
     virtual void initStates() = 0;
     virtual void initActors() = 0;
 
-    ActorManager *getActorManager() const;
     Application *getApplication() const;
     virtual void handleCommand(const EventUserCommandType command);
     virtual void handleCommand(const EventUserCommandType command, const std::vector<int>& params);

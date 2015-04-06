@@ -71,6 +71,13 @@ void BaseLogic::update(const float dt)
 }
 
 
+ActorManager *
+BaseLogic::getActorManager() const
+{
+    return actorManager_;
+}
+
+
 void BaseLogic::setActorManager(ActorManager *actorManager)
 {
     if (actorManager_)
@@ -90,13 +97,6 @@ Application *
 BaseLogic::getApplication() const
 {
     return app_;
-}
-
-
-ActorManager *
-BaseLogic::getActorManager() const
-{
-    return actorManager_;
 }
 
 

@@ -31,7 +31,7 @@ public:
     Actor *getActorForState(const std::string& state, const Actor::ID ident) const;
 
     const ActorsMap *getGlobalActors() const;
-    const ActorsMap *getActorsForState(const std::string& state) const;
+    const ActorsMap *getActorsForState(const std::string& state);
 
 protected:
     virtual Actor *createActor_(const Actor::ActorType actorType);

@@ -21,6 +21,13 @@ CCBaseLayer::CCBaseLayer()
 }
 
 
+//void
+//CCBaseLayer::sgeUpdate(const float dt)
+//{
+//    // NOOP
+//}
+
+
 //sge::Application *
 //CCBaseLayer::getApplication()
 //{

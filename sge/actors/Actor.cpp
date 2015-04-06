@@ -70,4 +70,12 @@ Actor::getComponent(const std::string& name) const
 }
 
 
+template<typename T>
+T *
+Actor::getComponent(const std::string& name) const
+{
+    return static_cast<T *>(getComponent(name));
+}
+
+
 SGE_NS_END;

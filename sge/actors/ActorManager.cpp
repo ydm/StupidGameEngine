@@ -25,7 +25,7 @@ ActorManager::~ActorManager()
     {
         delete p.second;
     }
-    // globalActors_.clear();
+    globalActors_.clear();
 
     for (auto& m : actorsForState_)
     {
@@ -80,13 +80,14 @@ ActorManager::getGlobalActors() const
 
 
 const ActorManager::ActorsMap *
-ActorManager::getActorsForState(const std::string& state) const
+ActorManager::getActorsForState(const std::string& state)
 {
-    try {
-        return actorsForState_.at(state);
-    } catch (std::out_of_range) {
-        return nullptr;
-    }
+//    try {
+//        return actorsForState_.at(state);
+//    } catch (std::out_of_range) {
+//        return nullptr;
+//    }
+    return getOrCreateActorsForState(state);
 }
 
 
