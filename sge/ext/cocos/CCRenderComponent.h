@@ -21,6 +21,10 @@ public:
     virtual ~CCRenderComponent();
     virtual void update(const float dt) override;
 
+protected:
+    virtual void init(Actor *owner) override;
+    cocos2d::Node *getNode() const;
+
 private:
     cocos2d::Node *node_;
 };

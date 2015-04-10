@@ -42,7 +42,7 @@ void Actor::addComponent(const std::string &name, sge::ActorComponent *component
     if (component)
     {
         components_[name] = component;
-        component->setOwner(this);
+        component->init(this);
     }
     else
     {
@@ -70,12 +70,12 @@ Actor::getComponent(const std::string& name) const
 }
 
 
-template<typename T>
-T *
-Actor::getComponent(const std::string& name) const
-{
-    return static_cast<T *>(getComponent(name));
-}
+//template<typename T>
+//T *
+//Actor::getComponent(const std::string& name) const
+//{
+//    return static_cast<T *>(getComponent(name));
+//}
 
 
 SGE_NS_END;

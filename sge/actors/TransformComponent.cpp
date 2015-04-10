@@ -12,6 +12,7 @@ SGE_NS_BEGIN;
 
 TransformComponent::TransformComponent()
 : position_(0, 0, 0)
+, size_(0, 0, 0)
 {
 }
 
@@ -31,6 +32,18 @@ TransformComponent::getPosition() const
 void TransformComponent::setPosition(const Vec3& pos)
 {
     position_ = pos;
+}
+
+
+const Vec3& TransformComponent::getSize() const
+{
+    return size_;
+}
+
+
+void TransformComponent::setSize(const Vec3& size)
+{
+    size_ = size;
 }
 
 

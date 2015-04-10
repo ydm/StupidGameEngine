@@ -13,16 +13,19 @@ class Actor;
 
 class ActorComponent
 {
+    friend class Actor;
+
 public:
     ActorComponent();
     virtual ~ActorComponent();
     virtual void update(const float dt);
+
+protected:
+    virtual void init(Actor *owner);
     Actor *getOwner();
 
 private:
-    friend class Actor;
     Actor *owner_;
-    void setOwner(Actor *owner);
 };
 
 SGE_NS_END;

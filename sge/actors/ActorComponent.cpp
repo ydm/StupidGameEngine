@@ -14,7 +14,7 @@ ActorComponent::~ActorComponent()                       {}
 void ActorComponent::update(const float dt)             {}
 Actor *ActorComponent::getOwner()                       {return owner_;}
 
-void ActorComponent::setOwner(Actor *owner)
+void ActorComponent::init(Actor *owner)
 {
     if (owner_)
     {
@@ -22,6 +22,5 @@ void ActorComponent::setOwner(Actor *owner)
     }
     owner_ = owner;
 }
-
 
 SGE_NS_END;

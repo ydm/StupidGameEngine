@@ -25,7 +25,7 @@ public:
     void addComponent(const std::string& name, ActorComponent *component);
     const ActorType getActorType() const;
     ActorComponent *getComponent(const std::string& name) const;
-    template<typename T> T *getComponent(const std::string& name) const;
+    //template<typename T> T *getComponent(const std::string& name) const;
 
 private:
     std::map<std::string, ActorComponent *> components_;

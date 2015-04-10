@@ -22,8 +22,12 @@ public:
     const Vec3& getPosition() const;
     void setPosition(const Vec3& pos);
 
+    const Vec3& getSize() const;
+    void setSize(const Vec3& size);
+
 private:
     Vec3 position_;
+    Vec3 size_;
     // ydm: TODO scale, rotation, etc.
 };
 

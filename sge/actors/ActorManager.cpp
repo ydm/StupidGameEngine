@@ -14,7 +14,7 @@ SGE_NS_BEGIN;
 ActorManager::ActorManager()
 : actorsForState_()
 , globalActors_()
-, nextID_(0)
+, nextID_(1)
 {
 }
 
